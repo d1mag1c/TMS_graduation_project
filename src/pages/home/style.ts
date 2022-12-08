@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const WrapperCards = styled.section`
-  margin: 0 auto;
+  margin: 100px auto;
   display: flex;
   align-items: center;
   justify-content: center;

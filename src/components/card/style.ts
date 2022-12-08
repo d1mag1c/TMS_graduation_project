@@ -7,6 +7,7 @@ export const CardBlock = styled.div`
   border-radius: 10px;
   transition: 1s;
 
+
   &:hover {
     transition: 1s;
     //transform: scale(1.1);

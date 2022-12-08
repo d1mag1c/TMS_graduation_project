@@ -1,4 +1,5 @@
 import React, { FC } from 'react';
+import { ItemsType } from '../../types';
 import {
     CardBlock,
     CardDescription, CardGenre,
@@ -8,7 +9,6 @@ import {
     CardTitle,
     CardYearAndGenres
 } from "./style";
-import {ItemsType} from "../../../types";
 
 type CardType = {
     children: ItemsType

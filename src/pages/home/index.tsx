@@ -1,23 +1,22 @@
-import React, {useState} from 'react';
-import {GetHomeCards} from '../../data/getAllCards';
-import {BlockTest, ButtonTest, WrapperCards} from "./style";
-import Card from "./card";
-
+import React from 'react';
+import Card from '../../components/card';
+import {GetHomeCards} from '../../data/getHomeCards';
+import {BlockTest, ButtonTest, Wrapper, WrapperCards} from "./style";
 
 const Home = () => {
 
-    const [page, setPage] = useState(1)
-
-    const cardsArray = GetHomeCards(page)
-    console.log(cardsArray?.cards)
-
+    const cardsArray = GetHomeCards()
+    // console.log(cardsArray?.cards)
+    // console.log(cardsArray.page)
     return (
         <BlockTest>
-            <WrapperCards>
-                {cardsArray?.cards.map((e) => e.items.map(card => <Card children={card} key={card.kinopoiskId}/>))}
-            </WrapperCards>
-
-            {page < 6 && <ButtonTest onClick={() => setPage(page + 1)}>Показать еще</ButtonTest>}
+            {cardsArray.cards.length ? <Wrapper>
+                <WrapperCards>
+                    {cardsArray.cards.map((e) => e.items.map(card => <Card children={card} key={card.kinopoiskId}/>))}
+                </WrapperCards>
+                {cardsArray.page < 5 &&
+                    <ButtonTest onClick={() => cardsArray.setPage(page => page + 1)}>Показать еще</ButtonTest>}
+            </Wrapper> : <div>Loading...</div>}
         </BlockTest>
     );
 };
