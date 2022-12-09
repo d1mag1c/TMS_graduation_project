@@ -28,7 +28,7 @@ export const BorderIcon1 = styled.span`
 
   width: 40px;
   height: 0;
-  border: 1px solid #bbbbbb;
+  border-top: 2px solid #bbbbbb;
   border-radius: 2px;
 
   &::before {
@@ -48,7 +48,7 @@ export const BorderIcon2 = styled.span`
 
   width: 40px;
   height: 0;
-  border: 1px solid #bbbbbb;
+  border-top: 2px solid #bbbbbb;
   border-radius: 2px;
 
   &::before {

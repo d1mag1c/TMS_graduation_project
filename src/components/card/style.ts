@@ -34,7 +34,7 @@ export const CardRating = styled.div`
   align-items: center;
   width: 40px;
   height: 20px;
-  background: #00A340;
+  background: #1d7715;
   border-radius: 5px;
   color: white;
   margin: 15px;
@@ -46,7 +46,7 @@ export const CardGenre = styled.div`
   width: max-content;
   height: max-content;
   padding: 5px;
-  background: #00A340;
+  background: #606777;
   color: white;
   margin-right: 15px;
   border-bottom-left-radius: 5px;

@@ -12,7 +12,7 @@ export const LoginBlock = styled.section`
   border: 2px solid #bbbbbb;
   border-radius: 10px;
   margin-right: 20px;
-  margin-left: auto;
+
   &:hover{
     border-color: white;
     & div:before, div:after{

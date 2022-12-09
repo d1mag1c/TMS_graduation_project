@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 export const SearchBlock = styled.section`
-  width: 30%;
+  width: 40%;
   position: relative;
-  margin: 0 auto;
+  margin: 0 150px 0 auto;
 `
 export const InputSearch = styled.input`
   width: 100%;
