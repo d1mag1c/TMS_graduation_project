@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const CardBlock = styled.div`
   width: 250px;
-  height: 430px;
+  height: 450px;
   margin: 20px;
   border-radius: 10px;
   transition: 1s;
@@ -58,17 +58,21 @@ export const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
 
+  
 `
 
 export const CardTitle = styled.p`
   font-weight: bold;
   margin-bottom: 10px;
+  height: 38px;
+  font-size: 18px;
 `
 
 export const CardDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 85px;
 `
 
 
@@ -79,5 +83,6 @@ export const CardYearAndGenres = styled.p`
 `
 
 export const CardsCountries = styled.p`
-  margin-top: 10px;
+  display: flex;
+  margin-top: auto;
 `

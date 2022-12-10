@@ -6,12 +6,13 @@ export const GetHomeCards = () => {
 
     const [cards, setCards] = useState<CardsHomeType[]>([])
     const [page, setPage] = useState(1)
+
     const URLHomeCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=NUM_VOTE&ratingFrom=${random}&ratingTo=10&yearFrom=${random2}&yearTo=${random3}&&page=${page}`;
 
 // console.log(URLHomeCards)
     useEffect(() => {
 
-        if(page < 6){
+        if (page < 6) {
             fetch(URLHomeCards, {
                 method: 'GET',
                 headers: {
@@ -25,10 +26,11 @@ export const GetHomeCards = () => {
                 })
                 .catch(err => console.log(err))
         }
+
     }, [page])
 
 
-        return {cards, page, setPage}
+    return {cards, page, setPage}
 
 
 }

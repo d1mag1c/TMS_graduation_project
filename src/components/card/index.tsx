@@ -11,25 +11,25 @@ import {
 } from "./style";
 
 type CardType = {
-    children: ItemsType
+    props: ItemsType
 }
 
-const Card:FC<CardType> = ({children}) => {
+const Card:FC<CardType> = ({props}) => {
     return (
                 <CardBlock>
-                    <CardImg image={children.posterUrl}>
-                        <CardRating>{children.ratingImdb ? children.ratingKinopoisk : children.ratingImdb}</CardRating>
-                        <CardGenre>{children.type}</CardGenre>
+                    <CardImg image={props.posterUrl}>
+                        <CardRating>{props.ratingImdb ? props.ratingKinopoisk : props.ratingImdb}</CardRating>
+                        <CardGenre>{props.type}</CardGenre>
                     </CardImg>
                     <CardInfo>
-                        <CardTitle>{children.nameRu ? children.nameRu : children.nameOriginal}</CardTitle>
+                        <CardTitle>{props.nameRu ? props.nameRu : props.nameOriginal}</CardTitle>
                         <CardDescription>
                             <CardYearAndGenres>
-                                <span>{children.year}</span>,
-                                {children.genres.map(e => ' ' + e.genre).slice(0, 5).toString()}
+                                <span>{props.year}</span>,
+                                {props.genres.map(e => ' ' + e.genre).slice(0, 5).toString()}
                             </CardYearAndGenres>
                             <CardsCountries>
-                                {children.countries.map(e => ' ' + e.country).slice(0, 3).toString()}
+                                {props.countries.map(e => ' ' + e.country).slice(0, 2).toString()}
                             </CardsCountries>
                         </CardDescription>
                     </CardInfo>

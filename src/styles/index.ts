@@ -1,15 +1,13 @@
 import {createGlobalStyle} from "styled-components";
+import {payloadType} from "../store/themeReducer/type";
 
-export const GlobalStyle = createGlobalStyle`
-
-  @import url('https://fonts.googleapis.com/css2?family=Underdog&display=swap');
-
-
+export const GlobalStyle = createGlobalStyle<{ props: payloadType }>`
+  
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #bbbbbb;
+    color: ${({props}) => props.color}
   }
 
   li {
@@ -27,7 +25,7 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #120818;
+    background: ${({props}) => props.background}
     font-family: 'Rubik', sans-serif;
   }
 `

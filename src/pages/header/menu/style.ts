@@ -12,8 +12,9 @@ export const MenuBlock = styled.section`
   cursor: pointer;
   margin-left: 20px;
   font-size: 20px;
+  color: #bbbbbb;
 
-  &:hover{
+  &:hover {
     border-color: white;
     color: white;
   }

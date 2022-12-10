@@ -9,6 +9,7 @@ export const LogoBlock = styled.div`
   font-size: 50px;
   letter-spacing: 3px;
   margin: 0 50px 0 100px;
+  color: #bbbbbb;
 
   &:hover {
     cursor: pointer;
