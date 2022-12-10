@@ -2,10 +2,11 @@ import styled from "styled-components";
 
 export const CardBlock = styled.div`
   width: 250px;
-  height: 430px;
+  height: 450px;
   margin: 20px;
   border-radius: 10px;
   transition: 1s;
+
 
   &:hover {
     transition: 1s;
@@ -33,7 +34,7 @@ export const CardRating = styled.div`
   align-items: center;
   width: 40px;
   height: 20px;
-  background: #00A340;
+  background: #1d7715;
   border-radius: 5px;
   color: white;
   margin: 15px;
@@ -45,7 +46,7 @@ export const CardGenre = styled.div`
   width: max-content;
   height: max-content;
   padding: 5px;
-  background: #00A340;
+  background: #606777;
   color: white;
   margin-right: 15px;
   border-bottom-left-radius: 5px;
@@ -57,17 +58,21 @@ export const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
 
+  
 `
 
 export const CardTitle = styled.p`
   font-weight: bold;
   margin-bottom: 10px;
+  height: 38px;
+  font-size: 18px;
 `
 
 export const CardDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  height: 85px;
 `
 
 
@@ -78,5 +83,6 @@ export const CardYearAndGenres = styled.p`
 `
 
 export const CardsCountries = styled.p`
-  margin-top: 10px;
+  display: flex;
+  margin-top: auto;
 `

@@ -1,10 +1,13 @@
-import  { createGlobalStyle } from "styled-components";
+import {createGlobalStyle} from "styled-components";
+import {payloadType} from "../store/themeReducer/type";
 
-export const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle<{ props: payloadType }>`
+  
   * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: ${({props}) => props.color}
   }
 
   li {
@@ -21,4 +24,8 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
 
+  body {
+    background: ${({props}) => props.background}
+    font-family: 'Rubik', sans-serif;
+  }
 `
