@@ -14,8 +14,28 @@ export const MenuBlock = styled.section`
   font-size: 20px;
   color: #bbbbbb;
 
+  & p, & span {
+    color: #bbbbbb;
+  }
+  & span{
+    font-size: 30px;
+  }
+  
   &:hover {
     border-color: white;
     color: white;
+    & p, & span {
+      color: white;
+    }
+    
   }
+
+  &:active {
+    border-color: #ffe311;
+    color: #ffe311;
+    & p, & span {
+      color: #ffe311;
+    }
+  }
+
 `

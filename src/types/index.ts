@@ -1,9 +1,9 @@
-export type CardsTop100Type = {
+export type CardsTopFilmsType = {
     films: FilmsType[],
     pagesCount: number
 }
 
-type FilmsType = {
+export type FilmsType = {
     countries: CountriesType[]
     filmId: number,
     filmLength: string,

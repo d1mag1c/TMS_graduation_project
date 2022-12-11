@@ -1,6 +1,7 @@
 export type payloadType = {
     background: string,
-    color: string
+    color: string,
+    colorHover: string
 }
 
 export type actionThemeType = {

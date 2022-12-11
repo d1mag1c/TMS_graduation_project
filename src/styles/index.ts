@@ -25,6 +25,7 @@ export const GlobalStyle = createGlobalStyle<{ props: payloadType }>`
   }
 
   body {
+    transition: 0.5s;
     background: ${({props}) => props.background}
     font-family: 'Rubik', sans-serif;
   }
