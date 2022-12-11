@@ -1,9 +1,17 @@
-import React from 'react';
-import { MenuBlock } from './style';
+import React, {FC} from 'react';
+import {MenuBlock} from './style';
 
-const Menu = () => {
+type OnclickType = {
+    changeStateBurger: () => void,
+    burgerState: boolean
+}
+
+
+const Menu: FC<OnclickType> = ({changeStateBurger, burgerState}) => {
     return (
-        <MenuBlock>Меню</MenuBlock>
+        <MenuBlock onClick={changeStateBurger}>
+            {burgerState ? <span>&#10006;</span> : <p>Menu</p>}
+        </MenuBlock>
     );
 };
 
