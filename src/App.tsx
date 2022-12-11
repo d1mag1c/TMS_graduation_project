@@ -1,20 +1,13 @@
 import React from 'react';
-import Home from "./pages/home";
-import {GlobalStyle} from "./styles";
-import Header from "./pages/header";
-import {useThemeSelector} from './store';
+import Layout from "./containers/layout";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
 
-    const selectTheme = useThemeSelector(state => state.themeReducer)
-
     return (
-        <>
-            <Header/>
-            <GlobalStyle props={selectTheme}/>
-            <Home></Home>
-        </>
-
+        <BrowserRouter>
+            <Layout/>
+        </BrowserRouter>
     );
 }
 

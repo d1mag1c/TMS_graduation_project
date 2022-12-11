@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
 export const WrapperCards = styled.section`
-  margin: 100px auto 30px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-
-`
-export const BlockTest = styled.div`
-  padding: 20px;
 
 `
 

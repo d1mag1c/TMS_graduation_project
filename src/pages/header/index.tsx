@@ -21,7 +21,7 @@ const Header = () => {
             {burgerState && <BackgroundBlock onClick={() => setBurgerState(false)}/>}
             {burgerState && <OverflowBodyStyle/>}
             <HeaderBlock>
-                <Burger burgerState={burgerState}/>
+                <Burger burgerState={burgerState} setBurgerState={setBurgerState}/>
                 <Menu changeStateBurger={changeStateBurger} burgerState={burgerState} />
                 <Logo/>
                 <Search/>

@@ -6,7 +6,7 @@ export const CardBlock = styled.div`
   margin: 20px;
   border-radius: 10px;
   transition: 1s;
-
+  overflow: hidden;
 
   &:hover {
     transition: 1s;
@@ -28,17 +28,20 @@ export const CardImg = styled.div<{ image: string }>`
   justify-content: space-between;
 `
 
-export const CardRating = styled.div`
+export const CardRating = styled.div<{ colorChange?: string }>`
   display: flex;
   justify-content: center;
   align-items: center;
+  min-width: max-content;
+  padding: 0 5px;
   width: 40px;
   height: 20px;
-  background: #1d7715;
+  background: ${({colorChange}) => colorChange ? colorChange : 'grey'};
   border-radius: 5px;
   color: white;
   margin: 15px;
 `
+
 export const CardGenre = styled.div`
   display: flex;
   justify-content: center;
@@ -58,13 +61,13 @@ export const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
 
-  
+
 `
 
 export const CardTitle = styled.p`
   font-weight: bold;
   margin-bottom: 10px;
-  height: 38px;
+  min-height: 38px;
   font-size: 18px;
 `
 

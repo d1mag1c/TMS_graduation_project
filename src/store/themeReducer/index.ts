@@ -3,14 +3,16 @@ import {actionThemeType, payloadType} from "./type";
 const defaultState: payloadType = {
     background: "#F3F3F3;",
     color: "#120818;",
+    colorHover: "#ffe311"
 }
 
 const nightTheme: payloadType = {
     background: "#120818;",
-    color: "#bbbbbb;"
+    color: "#bbbbbb;",
+    colorHover: "white"
 }
 
-export const themeReducer = (state = nightTheme, action :actionThemeType) => {
+export const themeReducer = (state = nightTheme, action: actionThemeType) => {
 
     switch (action.type) {
         case "LIGHT_THEME":

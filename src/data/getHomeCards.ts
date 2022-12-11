@@ -2,12 +2,14 @@ import {useEffect, useState} from "react";
 import {CardsHomeType} from "../types";
 import {random, random2, random3} from "../constants";
 
-export const GetHomeCards = () => {
+
+
+export const GetHomeCards = (type: string) => {
 
     const [cards, setCards] = useState<CardsHomeType[]>([])
     const [page, setPage] = useState(1)
 
-    const URLHomeCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=NUM_VOTE&ratingFrom=${random}&ratingTo=10&yearFrom=${random2}&yearTo=${random3}&&page=${page}`;
+    const URLHomeCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=NUM_VOTE&type=${type}&ratingFrom=${random}&ratingTo=10&yearFrom=${random2}&yearTo=${random3}&&page=${page}`;
 
 // console.log(URLHomeCards)
     useEffect(() => {
@@ -16,7 +18,7 @@ export const GetHomeCards = () => {
             fetch(URLHomeCards, {
                 method: 'GET',
                 headers: {
-                    'X-API-KEY': 'd1309ff9-4ad7-4f90-a411-959371b0d2a2',
+                    'X-API-KEY': '88d541ef-2a7a-4314-81cb-47abad1833b6',
                     'Content-Type': 'application/json',
                 },
             })
@@ -27,7 +29,7 @@ export const GetHomeCards = () => {
                 .catch(err => console.log(err))
         }
 
-    }, [page])
+    }, [page, URLHomeCards])
 
 
     return {cards, page, setPage}

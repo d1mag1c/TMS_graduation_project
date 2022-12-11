@@ -10,7 +10,7 @@ type OnclickType = {
 const Menu: FC<OnclickType> = ({changeStateBurger, burgerState}) => {
     return (
         <MenuBlock onClick={changeStateBurger}>
-            {burgerState ? <span>&#10006;</span> : <p>Menu</p>}
+            {burgerState ? <span>&#10006;</span> : <p>Меню</p>}
         </MenuBlock>
     );
 };

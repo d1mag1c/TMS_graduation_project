@@ -13,21 +13,36 @@ export const BurgerBlock = styled.section<{ theme?: boolean, burgerState?: boole
   z-index: 11;
 `
 
-export const BurgerList = styled.ul`
+export const BurgerList = styled.ul<{ theme?: string }>`
   display: flex;
   flex-direction: column;
 
   padding: 20px;
   width: 100%;
   font-size: 20px;
+
+  & li:hover {
+    color: ${({theme}) => theme.colorHover};
+  }
 `
 
 export const ListLi = styled.li`
   margin: 20px;
+  width: max-content;
+
+  &:first-of-type{
+    margin-bottom: 5px;
+  }
+  
+  &:nth-of-type(2), &:nth-of-type(3) {
+    font-size: 15px;
+
+    margin: 5px 5px 5px 50px;
+  }
 
   &:hover {
     cursor: pointer;
     text-decoration: underline;
-    color: white;
+
   }
 `
