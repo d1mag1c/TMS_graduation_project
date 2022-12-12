@@ -19,7 +19,7 @@ export const ButtonGetMore = styled.button`
   background:  rgb(79, 13, 100);
   color: white;
   border-radius: 5px;
-  margin:0 auto;
+  margin:30px auto 0;
   position: relative;
 `
 export const Wrapper = styled.div`

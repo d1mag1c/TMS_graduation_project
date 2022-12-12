@@ -4,6 +4,7 @@ import Main from '../../pages/main';
 import {useThemeSelector} from "../../store";
 import { GlobalStyle } from '../../styles';
 import RouteComponent from "../router";
+import Footer from "../../pages/footer";
 
 const Layout = () => {
     const selectTheme = useThemeSelector(state => state.themeReducer)
@@ -14,7 +15,7 @@ const Layout = () => {
             <Main>
                 <RouteComponent/>
             </Main>
-            {/*<Footer/>*/}
+            <Footer/>
         </>
     );
 };
