@@ -11,6 +11,10 @@ export const BurgerBlock = styled.section<{ theme?: boolean, burgerState?: boole
   transform: translateX(${({burgerState}) => burgerState ? '0px' : '-300px'});
   border-right: 2px solid rgb(79, 13, 100);
   z-index: 11;
+
+  @media (max-width: 1050px) {
+    top: 170px;
+  }
 `
 
 export const BurgerList = styled.ul<{ theme?: string }>`

@@ -10,9 +10,10 @@ export const CardBlock = styled.div`
 
   &:hover {
     transition: 1s;
-    //transform: scale(1.1);
+    transform: scale(1.05) skewY( 3deg);
     cursor: pointer;
-    box-shadow: -10px 20px 10px 0 rgba(65, 64, 64, 0.68);
+    box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
+
   }
 `
 

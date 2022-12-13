@@ -22,11 +22,23 @@ export const GlobalStyle = createGlobalStyle<{ props: payloadType }>`
   a {
     cursor: pointer;
     text-decoration: none;
+    color: ${({props}) => props.color};
+    &:hover{
+      color:${({props}) => props.colorHover}
+    }
   }
 
   body {
     transition: 0.5s;
     background: ${({props}) => props.background}
     font-family: 'Rubik', sans-serif;
+    
+  }
+  
+  svg{
+    fill:${({props}) => props.color};
+    &:hover {
+      fill:${({props}) => props.colorHover}
+    }
   }
 `

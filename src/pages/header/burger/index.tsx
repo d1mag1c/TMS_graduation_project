@@ -9,7 +9,6 @@ type BurgerStateType = {
     setBurgerState: React.Dispatch<SetStateAction<boolean>>
 }
 
-
 const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
     const theme = useThemeSelector(state => state.themeReducer)
     const navigate = useNavigate()
@@ -24,15 +23,17 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
                 <ListLi onClick={() => {
                     closeBurger()
                     navigate(`top_films/${TOP_100}`)
+                    window.scroll({top: 0})
                 }
                 }>Топ 100</ListLi>
                 <ListLi onClick={() => {
                     closeBurger()
                     navigate(`top_films/${TOP_250}`)
+                    window.scroll({top: 0})
                 }}>Топ 250</ListLi>
                 <ListLi onClick={closeBurger}>Сериалы</ListLi>
                 <ListLi onClick={closeBurger}>Мини-сериалы</ListLi>
-                <ListLi onClick={closeBurger}>ТВ шоу</ListLi>
+                <ListLi onClick={closeBurger}>ТВ-шоу</ListLi>
                 <ListLi>{'Быстрый поиск >>>'}</ListLi>
             </BurgerList>
         </BurgerBlock>

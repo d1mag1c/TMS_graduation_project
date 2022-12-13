@@ -9,12 +9,15 @@ import {
     CardTitle,
     CardYearAndGenres
 } from "./style";
+import {useNavigate} from "react-router-dom";
 
 type CardTopFilmsType = {
     props: FilmsType
 }
 
 const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
+
+    const navigate = useNavigate()
 
     const colorChange = () => {
         const rating = Number(props.rating);
@@ -30,7 +33,7 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
     }
 
     return (
-        <CardBlock>
+        <CardBlock id={String(props.filmId)} onClick={() => navigate(`/review/${props.filmId}`)}>
             <CardImg image={props.posterUrl}>
                 {props.rating && <CardRating colorChange={colorChange()}>{props.rating}</CardRating>}
             </CardImg>

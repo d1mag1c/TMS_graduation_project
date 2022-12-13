@@ -9,7 +9,9 @@ import {
     CardTitle,
     CardYearAndGenres
 } from "./style";
-import {FILM, MINI_SERIES, TV_SERIES, TV_SHOW} from "../../constants";
+import {useNavigate} from "react-router-dom";
+import { colorChange } from '../../utils/colorChange';
+import {genreTranslate} from "../../utils/genreTranslate";
 
 type CardType = {
     props: ItemsType
@@ -17,42 +19,16 @@ type CardType = {
 
 const Card: FC<CardType> = ({props}) => {
 
-    const colorChange = (rating: number) => {
-        switch (rating !== 0) {
-            case rating < 7 && rating > 5 :
-                return '#c4aa00'
-            case rating >= 7 :
-                return 'green'
-            case rating <= 5 :
-                return 'red'
-            default:
-                return 'grey'
-        }
-    }
-
-    const genreTranslate = () => {
-        switch (props.type) {
-            case FILM:
-                return 'Фильм'
-            case TV_SHOW:
-                return 'ТВ-шоу'
-            case TV_SERIES:
-                return 'Сериал'
-            case MINI_SERIES:
-                return 'Мини-сериал'
-            default:
-                return props.type
-        }
-    }
+    const navigate = useNavigate()
 
     return (
-        <CardBlock id={String(props.kinopoiskId)}>
+        <CardBlock id={String(props.kinopoiskId)} onClick={() => navigate(`/review/${props.kinopoiskId}`)}>
             <CardImg image={props.posterUrl}>
                 {props.ratingImdb ?
                     <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating> :
                     <CardRating colorChange={colorChange(props.ratingKinopoisk)}>{props.ratingKinopoisk}</CardRating>
                 }
-                <CardGenre>{genreTranslate()}</CardGenre>
+                <CardGenre>{genreTranslate(props.type)}</CardGenre>
             </CardImg>
             <CardInfo>
                 <CardTitle>{props.nameRu ? props.nameRu : props.nameOriginal}</CardTitle>

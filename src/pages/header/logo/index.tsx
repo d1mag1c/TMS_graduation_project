@@ -7,7 +7,6 @@ const Logo = () => {
     const navigate = useNavigate()
     const logoReload = () => {
         navigate('/')
-        window.location.reload()
     }
 
     return (

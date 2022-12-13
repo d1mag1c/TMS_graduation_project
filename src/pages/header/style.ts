@@ -10,6 +10,10 @@ export const HeaderBlock = styled.section`
   height: 80px;
   background: rgb(79, 13, 100);
   z-index: 10;
+  @media (max-width: 1050px) {
+    flex-wrap: wrap;
+    height: 170px;
+  }
 `
 
 export const BackgroundBlock = styled.div`
@@ -24,4 +28,12 @@ export const OverflowBodyStyle  = createGlobalStyle`
     body{
       overflow-y: hidden;
     }
+    `
+
+export const WrapperLoginStyle = styled.div`
+    display: flex;
+  @media (max-width: 1050px) {
+
+    margin-left: auto;
+  }
     `

@@ -4,9 +4,9 @@ export const LoginBlock = styled.section`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  min-width: max-content;
   height: 50px;
   width: 50px;
+  min-width: 50px;
   cursor: pointer;
   padding: 0 10px;
   border: 2px solid #bbbbbb;
@@ -19,6 +19,7 @@ export const LoginBlock = styled.section`
       border-color: white;
     }
   }
+  
 `
 
 export const IconUser = styled.div`
