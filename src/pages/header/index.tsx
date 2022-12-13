@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {BackgroundBlock, HeaderBlock, OverflowBodyStyle} from "./style";
+import {BackgroundBlock, HeaderBlock, OverflowBodyStyle, WrapperLoginStyle} from "./style";
 import Login from "./login";
 import Menu from "./menu";
 import Search from "./search";
@@ -22,11 +22,14 @@ const Header = () => {
             {burgerState && <OverflowBodyStyle/>}
             <HeaderBlock>
                 <Burger burgerState={burgerState} setBurgerState={setBurgerState}/>
-                <Menu changeStateBurger={changeStateBurger} burgerState={burgerState} />
+                <Menu changeStateBurger={changeStateBurger} burgerState={burgerState}/>
                 <Logo/>
                 <Search/>
-                <Login/>
-                <ThemeSwitcher/>
+                <WrapperLoginStyle>
+                    <Login/>
+                    <ThemeSwitcher/>
+                </WrapperLoginStyle>
+
             </HeaderBlock>
         </>
 

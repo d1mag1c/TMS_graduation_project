@@ -4,17 +4,19 @@ export const ReviewCardBlock = styled.section`
   display: flex;
   margin: 0 auto;
   width: 100%;
+  max-width: 1600px;
   height: max-content;
 `
 
-export const BackgroundBlock = styled.div<{ coverUrl: string, theme: string }>`
-  background: linear-gradient(rgba(32, 19, 35, 0.96), rgb(18, 8, 24)), url(${({coverUrl}) => coverUrl}) no-repeat;
+export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }>`
+  background: ${({gradient}) => gradient}, url(${({coverUrl}) => coverUrl}) no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
   display: flex;
   padding: 100px;;
   flex-direction: column;
+  
 `
 
 export const WrapperInfo = styled.div`
@@ -63,7 +65,8 @@ export const RatingLi = styled.li<{ colorChange?: string }>`
   justify-content: center;
   margin-right: 15px;
   border-radius: 5px;
-height: 100%;
+  height: 100%;
+
   &:hover {
     cursor: pointer;
   }

@@ -10,6 +10,7 @@ export const LogoBlock = styled.div`
   letter-spacing: 3px;
   margin: 0 50px 0 100px;
   color: #bbbbbb;
+  min-width: 165px;
 
   &:hover {
     cursor: pointer;
@@ -21,7 +22,6 @@ export const LogoBlock = styled.div`
     position: absolute;
     top: -7px;
     left: 40px;
-
   }
 
   &:after {
@@ -30,7 +30,16 @@ export const LogoBlock = styled.div`
     position: absolute;
     bottom: -10px;
     left: 0;
-
   }
 
+  @media (max-width: 1350px) {
+    margin: 0 50px 0 40px;
+  }
+  @media (max-width: 600px) {
+    width: 55px;
+    height: 40px;
+    min-width: 85px;
+    font-size: 30px;
+    margin-left: 10px;
+  }
 `

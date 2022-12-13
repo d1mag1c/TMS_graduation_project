@@ -11,6 +11,7 @@ export const SwitcherBlock = styled.section`
   border: 2px solid #bbbbbb;
   border-radius: 9px;
   position: relative;
+
 `
 
 export const OptionDay = styled.p`
