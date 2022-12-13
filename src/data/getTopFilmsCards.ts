@@ -13,7 +13,7 @@ export const GetTopFilmsCards = (value: string | undefined) => {
             fetch(URLHomeCards, {
                 method: 'GET',
                 headers: {
-                    'X-API-KEY': '88d541ef-2a7a-4314-81cb-47abad1833b6',
+                    'X-API-KEY': 'd1309ff9-4ad7-4f90-a411-959371b0d2a2',
                     'Content-Type': 'application/json',
                 },
             })

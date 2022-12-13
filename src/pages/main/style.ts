@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
 export const MainBlock = styled.section`
-  padding: 120px 20px 50px;
+  padding: 80px 0 50px;
   min-height: 1000px;
     `

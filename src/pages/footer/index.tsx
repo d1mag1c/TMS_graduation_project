@@ -1,10 +1,10 @@
 import React from 'react';
 import {Copyright, FooterBlock, FooterLinks, LinkSocial, SocialIcons} from "./style";
-import GitHub from "../../utils/socialIcon/github";
-import Instagram from "../../utils/socialIcon/instagram";
-import Linkedin from "../../utils/socialIcon/linkedin";
 import {Link} from "react-router-dom";
 import {TOP_100, TOP_250} from "../../constants";
+import GitHub from '../../components/iconSocial/github';
+import Linkedin from '../../components/iconSocial/linkedin';
+import Instagram from '../../components/iconSocial/instagram';
 
 const Footer = () => {
     return (
