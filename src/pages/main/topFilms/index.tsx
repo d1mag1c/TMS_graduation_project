@@ -4,7 +4,7 @@ import {WrapperCards} from "./style";
 import {GetTopFilmsCards} from "../../../data/getTopFilmsCards";
 import TopFilmsCard from "../../../components/cards/topFilmsCard";
 import Loader from "../../../components/loader";
-import {PaginationBlock} from '../../../components/pagination';
+import { PaginationBlock } from '../../../components/pagination/allPage';
 
 const TopFilms = () => {
 

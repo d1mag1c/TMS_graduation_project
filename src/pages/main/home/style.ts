@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const WrapperCards = styled.section`
   margin: 50px auto;
+  padding: 0 50px;
   display: flex;
   align-items: center;
   justify-content: center;

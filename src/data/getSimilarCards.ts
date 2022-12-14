@@ -1,15 +1,16 @@
 import {useEffect, useState} from "react";
-import {CardReviewType} from "../types";
+import {CardsSimilarType} from "../types";
 import {API_KEY} from "../constants";
 
-export const GetReviewCard = (id: number) => {
+export const GetSimilarCards = (id: number) => {
 
-    const [cards, setCards] = useState<CardReviewType>()
-    const URLReviewCard = `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`;
+    const [cards, setCards] = useState<CardsSimilarType>()
+
+    const URLSimilarCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/similars`;
 
     useEffect(() => {
 
-        fetch(URLReviewCard, {
+        fetch(URLSimilarCards, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY,
@@ -21,8 +22,7 @@ export const GetReviewCard = (id: number) => {
             )
             .catch(err => console.log(err))
 
-
-    }, [URLReviewCard])
+    }, [URLSimilarCards])
 
     return {cards}
 }

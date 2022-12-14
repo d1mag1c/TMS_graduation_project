@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react";
 import {CardsHomeType} from "../types";
-import {random, random2, random3} from "../constants";
+import {API_KEY, random, random2, random3} from "../constants";
 
 
 
@@ -18,7 +18,7 @@ export const GetHomeCards = (type: string) => {
             fetch(URLHomeCards, {
                 method: 'GET',
                 headers: {
-                    'X-API-KEY': 'd1309ff9-4ad7-4f90-a411-959371b0d2a2',
+                    'X-API-KEY': API_KEY,
                     'Content-Type': 'application/json',
                 },
             })

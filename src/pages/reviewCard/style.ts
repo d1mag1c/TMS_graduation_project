@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const ReviewCardBlock = styled.section`
   display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 100%;
   max-width: 1600px;
@@ -14,7 +15,7 @@ export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }
   width: 100%;
   height: 100%;
   display: flex;
-  padding: 100px;;
+  padding: 100px 100px 50px 100px;
   flex-direction: column;
   
 `

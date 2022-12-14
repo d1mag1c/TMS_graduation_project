@@ -2,6 +2,9 @@ export const random = Math.round(Math.random() * 10)
 export const random2 = 2000 + Math.round(Math.random() * 10)
 export const random3 = 2010 + Math.round(Math.random() * 10)
 
+export const API_KEY = '88d541ef-2a7a-4314-81cb-47abad1833b6'
+
+
 export const ALL = 'ALL'
 export const FILM = 'FILM'
 export const TV_SHOW = 'TV_SHOW'
