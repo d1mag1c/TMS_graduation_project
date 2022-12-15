@@ -103,7 +103,7 @@ export type CardsSimilarType = {
 
 }
 
-type ItemsSimilarType = {
+export type ItemsSimilarType = {
     filmId:number,
     nameRu:string,
     nameEn:string,

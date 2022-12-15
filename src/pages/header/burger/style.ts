@@ -21,7 +21,7 @@ export const BurgerList = styled.ul<{ theme?: string }>`
   display: flex;
   flex-direction: column;
 
-  padding: 20px;
+
   width: 100%;
   font-size: 20px;
 
@@ -31,17 +31,17 @@ export const BurgerList = styled.ul<{ theme?: string }>`
 `
 
 export const ListLi = styled.li`
-  margin: 20px;
+  margin: 20px 40px;
   width: max-content;
 
-  &:first-of-type{
+  &:nth-of-type(2) {
     margin-bottom: 5px;
   }
-  
-  &:nth-of-type(2), &:nth-of-type(3) {
+
+  &:nth-of-type(3), &:nth-of-type(4) {
     font-size: 15px;
 
-    margin: 5px 5px 5px 50px;
+    margin: 5px 5px 5px 70px;
   }
 
   &:hover {
@@ -49,4 +49,19 @@ export const ListLi = styled.li`
     text-decoration: underline;
 
   }
+`
+
+export const LiGoToHome = styled.li<{theme?: string}>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto 20px;
+  width: 100%;
+  padding: 20px;
+  border-bottom: 2px solid rgb(79, 13, 100);
+  cursor: pointer;
+&:hover{
+  background: rgb(79, 13, 100);
+  
+}
 `

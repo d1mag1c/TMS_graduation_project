@@ -22,7 +22,10 @@ console.log(findURL())
         <>
             {videoArray &&
                 < VideoTrailerBlock>
-                    {paramsId && <ReactPlayer url={findURL()}/>}
+                    {paramsId && <ReactPlayer
+                        className='react_player'
+                        url={findURL()}/>
+                    }
                 </VideoTrailerBlock>}
 
         </>

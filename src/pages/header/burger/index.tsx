@@ -1,5 +1,5 @@
 import React, {FC, SetStateAction} from 'react';
-import {BurgerBlock, BurgerList, ListLi} from "./style";
+import {BurgerBlock, BurgerList, LiGoToHome, ListLi} from "./style";
 import {useThemeSelector} from "../../../store";
 import {useNavigate} from "react-router-dom";
 import {TOP_100, TOP_250 } from '../../../constants';
@@ -19,6 +19,11 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
     return (
         <BurgerBlock theme={theme} burgerState={burgerState}>
             <BurgerList theme={theme}>
+                <LiGoToHome onClick={ () => {
+                    closeBurger()
+                    navigate('/')
+                }
+                } theme={theme}>На главную</LiGoToHome>
                 <ListLi onClick={closeBurger}>Фильмы</ListLi>
                 <ListLi onClick={() => {
                     closeBurger()

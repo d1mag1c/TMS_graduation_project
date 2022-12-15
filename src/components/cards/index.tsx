@@ -20,9 +20,13 @@ type CardType = {
 const Card: FC<CardType> = ({props}) => {
 
     const navigate = useNavigate()
+    const clickCard = (id: number) => {
+        navigate(`/review/${id}`)
+        window.scroll({top: 0})
+    }
 
     return (
-        <CardBlock id={String(props.kinopoiskId)} onClick={() => navigate(`/review/${props.kinopoiskId}`)}>
+        <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
             <CardImg image={props.posterUrl}>
                 {props.ratingImdb ?
                     <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating> :

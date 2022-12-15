@@ -8,8 +8,7 @@ import {
     SimilarInfo,
     SimilarTitleBlock
 } from "./style";
-import {SimilarPagination} from "../../../components/pagination/similarPagination";
-import {useParams} from "react-router-dom";
+import {useNavigate, useParams} from "react-router-dom";
 import {GetSimilarCards} from "../../../data/getSimilarCards";
 
 const SimilarCards = () => {
@@ -17,6 +16,12 @@ const SimilarCards = () => {
     const paramsId = Number(params.id)
     const cardsSimilar = GetSimilarCards(paramsId)
     const card = cardsSimilar.cards
+    const navigate = useNavigate()
+    const clickCard = (id: number) => {
+            navigate(`/review/${id}`)
+            window.scroll({top: 0})
+    }
+
 
     const changePage = (e: { selected: number }) => {
         console.log(e.selected)
@@ -34,9 +39,9 @@ const SimilarCards = () => {
                 </SimilarInfo>
                 <SimilarCardsBlock>
                     {card.items.map(e =>
-                        <CardBlock key={e.filmId}>
+                        <CardBlock key={e.filmId} onClick={() => clickCard(e.filmId)}>
                             <CardImgBlock>
-                                <CardImg src={e.posterUrl} />
+                                <CardImg src={e.posterUrl}/>
                             </CardImgBlock>
                         </CardBlock>).slice(0, 6)}
                 </SimilarCardsBlock>

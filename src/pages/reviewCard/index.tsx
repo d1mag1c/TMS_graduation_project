@@ -25,13 +25,13 @@ const ReviewCard = () => {
     const paramsId = Number(params.id)
     const cardReview = GetReviewCard(paramsId)
     const card = cardReview.cards
-    const gradient = useThemeSelector(state => state.themeReducer.gradient)
+    const theme = useThemeSelector(state => state.themeReducer)
 
     return (
         <ReviewCardBlock>
             {card &&
                 <>
-                    <BackgroundBlock coverUrl={card.coverUrl} gradient={gradient}>
+                    <BackgroundBlock coverUrl={card.coverUrl} gradient={theme.gradient}>
                         <WrapperInfo>
                             <ImgBlock>
                                 <ImgReviewCard src={`${card.posterUrl}`}/>

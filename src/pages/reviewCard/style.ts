@@ -7,6 +7,7 @@ export const ReviewCardBlock = styled.section`
   width: 100%;
   max-width: 1600px;
   height: max-content;
+  
 `
 
 export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }>`
@@ -17,17 +18,26 @@ export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }
   display: flex;
   padding: 100px 100px 50px 100px;
   flex-direction: column;
-  
+  @media (max-width: 1050px){
+    padding: 160px 50px 50px 50px;
+  }
 `
 
 export const WrapperInfo = styled.div`
   display: flex;
+  @media (max-width: 950px) {
+flex-direction: column;
+  }
+  
 `
 export const ImgBlock = styled.div`
   width: 330px;
   height: 460px;
   min-width: 320px;
   margin-right: 80px;
+  @media (max-width: 950px) {
+    margin: 0 auto;
+  }
 `
 
 export const ImgReviewCard = styled.img`
@@ -42,6 +52,10 @@ export const TitleRu = styled.h1`
   display: flex;
   align-items: center;
   font-size: 40px;
+  @media (max-width: 950px) {
+    margin-top: 20px;
+  }
+
 `
 
 export const TitleOriginal = styled.p`
@@ -56,6 +70,9 @@ export const RatingBlock = styled.ul`
   display: flex;
   width: max-content;
   margin: 20px 0 60px;
+  @media (max-width: 950px) {
+    
+  }
 
 `
 export const RatingLi = styled.li<{ colorChange?: string }>`
@@ -64,6 +81,7 @@ export const RatingLi = styled.li<{ colorChange?: string }>`
   display: flex;
   align-items: center;
   justify-content: center;
+
   margin-right: 15px;
   border-radius: 5px;
   height: 100%;

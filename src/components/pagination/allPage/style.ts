@@ -4,7 +4,7 @@ export const PaginateContainer = styled.div<{theme: string}>`
   .pagination {
     color: #0366d6;
     display: flex;
-    margin: 40px auto;
+    margin: 40px auto 0 ;
     list-style: none;
     width: max-content;
   }
