@@ -1,15 +1,17 @@
 import {useEffect, useState} from "react";
-import {CardReviewType} from "../types";
+import {CardsTopFilmsType} from "../types";
 import {API_KEY} from "../constants";
 
-export const GetReviewCard = (id: number) => {
+export const GetAwaitFilms = () => {
 
-    const [cards, setCards] = useState<CardReviewType>()
-    const URLReviewCard = `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`;
+    const [cards, setCards] = useState<CardsTopFilmsType>()
+    const [page, setPage] = useState(1)
+
+    const URLHomeCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films/top?type=TOP_AWAIT_FILMS&page=${page}`;
 
     useEffect(() => {
 
-        fetch(URLReviewCard, {
+        fetch(URLHomeCards, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY,
@@ -22,7 +24,7 @@ export const GetReviewCard = (id: number) => {
             .catch(err => console.log(err))
 
 
-    }, [URLReviewCard])
+    }, [URLHomeCards, page])
 
-    return {cards}
+    return {cards, page, setPage}
 }

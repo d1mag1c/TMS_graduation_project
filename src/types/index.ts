@@ -81,11 +81,11 @@ export type CardReviewType = {
     shortDescription: string,
     editorAnnotation?: string,
     isTicketsAvailable?: boolean,
-    productionStatus? : string,
+    productionStatus?: string,
     type: string,
-    ratingMpaa? : string,
+    ratingMpaa?: string,
     ratingAgeLimits: string,
-    countries:  CountriesType[],
+    countries: CountriesType[],
     genres: GenresType[],
     startYear?: number,
     endYear?: number,
@@ -95,4 +95,31 @@ export type CardReviewType = {
     hasImax?: string,
     has3D?: string,
     lastSync?: string,
+}
+
+export type CardsSimilarType = {
+    total: number,
+    items: ItemsSimilarType[]
+
+}
+
+export type ItemsSimilarType = {
+    filmId:number,
+    nameRu:string,
+    nameEn:string,
+    nameOriginal:string,
+    posterUrl:string,
+    posterUrlPreview:string,
+    relationType:string
+}
+
+export type VideoType = {
+    total: number,
+    items: ItemsVideoType[]
+}
+
+type ItemsVideoType = {
+    url: string,
+    name: string,
+    site: string
 }

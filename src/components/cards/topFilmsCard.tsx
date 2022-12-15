@@ -32,8 +32,13 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
         }
     }
 
+    const clickCard = (id: number) => {
+        navigate(`/review/${id}`)
+        window.scroll({top: 0})
+    }
+
     return (
-        <CardBlock id={String(props.filmId)} onClick={() => navigate(`/review/${props.filmId}`)}>
+        <CardBlock id={String(props.filmId)} onClick={() => clickCard(props.filmId)}>
             <CardImg image={props.posterUrl}>
                 {props.rating && <CardRating colorChange={colorChange()}>{props.rating}</CardRating>}
             </CardImg>

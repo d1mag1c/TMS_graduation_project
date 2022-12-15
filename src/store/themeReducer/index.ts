@@ -3,7 +3,7 @@ import {actionThemeType, payloadType} from "./type";
 const defaultState: payloadType = {
     background: "#F3F3F3;",
     color: "#120818;",
-    colorHover: "#ffe311",
+    colorHover: "#ffe311;",
     gradient: "linear-gradient(to right, rgb(243, 243, 243), rgba(243, 243, 243, 0)),\n  linear-gradient(to left, rgb(243, 243, 243), rgba(243, 243, 243, 0)),\n  linear-gradient(rgba(243, 243, 243, 0.01), rgb(243, 243, 243))",
     loader: "black"
 }

@@ -1,14 +1,12 @@
-import { PaginateContainer } from "./style";
 import ReactPaginate from "react-paginate";
-import {useThemeSelector} from "../../store";
+import { useThemeSelector } from "../../../store";
+import { PaginateContainer } from "./style";
 
 type PaginationType = {
     changePage: (selectedItem: {selected : number}) => void,
-    pageCount:  number,
-    forcePage: number
 }
 
-export const PaginationBlock = ({ changePage, pageCount, forcePage }: PaginationType) => {
+export const SimilarPagination = ({ changePage}: PaginationType) => {
 
     const theme = useThemeSelector(state => state.themeReducer)
 
@@ -16,13 +14,11 @@ export const PaginationBlock = ({ changePage, pageCount, forcePage }: Pagination
         <>
             <PaginateContainer theme={theme}>
                 {<ReactPaginate
-                    forcePage={forcePage}
-                    className="pagination "
-                    breakLabel="..."
+
+                    className="pagination_similar"
                     nextLabel=">"
                     onPageChange={changePage}
-                    pageRangeDisplayed={4}
-                    pageCount={pageCount}
+                    pageCount={0}
                     previousLabel="<"
                 />}
             </PaginateContainer>

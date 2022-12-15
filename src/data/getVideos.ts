@@ -1,15 +1,16 @@
 import {useEffect, useState} from "react";
-import {CardReviewType} from "../types";
+import {VideoType} from "../types";
 import {API_KEY} from "../constants";
 
-export const GetReviewCard = (id: number) => {
+export const GetVideos = (id: number) => {
 
-    const [cards, setCards] = useState<CardReviewType>()
-    const URLReviewCard = `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`;
+    const [video, setVideo] = useState<VideoType>()
+
+    const URLVideoCard = `https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}/videos`;
 
     useEffect(() => {
 
-        fetch(URLReviewCard, {
+        fetch(URLVideoCard, {
             method: 'GET',
             headers: {
                 'X-API-KEY': API_KEY,
@@ -17,12 +18,12 @@ export const GetReviewCard = (id: number) => {
             },
         })
             .then(res => res.json())
-            .then(json => setCards(json)
+            .then(json => setVideo(json)
             )
             .catch(err => console.log(err))
 
+    }, [])
 
-    }, [URLReviewCard])
 
-    return {cards}
+    return {video}
 }

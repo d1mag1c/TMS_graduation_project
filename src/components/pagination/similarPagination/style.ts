@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const PaginateContainer = styled.div<{theme: string}>`
-  .pagination {
+  .pagination_similar{
     color: #0366d6;
     display: flex;
     margin: 40px auto;

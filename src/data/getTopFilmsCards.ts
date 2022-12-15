@@ -1,5 +1,6 @@
 import {useEffect, useState} from "react";
 import {CardsTopFilmsType} from "../types";
+import {API_KEY} from "../constants";
 
 export const GetTopFilmsCards = (value: string | undefined) => {
 
@@ -13,7 +14,7 @@ export const GetTopFilmsCards = (value: string | undefined) => {
             fetch(URLHomeCards, {
                 method: 'GET',
                 headers: {
-                    'X-API-KEY': 'd1309ff9-4ad7-4f90-a411-959371b0d2a2',
+                    'X-API-KEY': API_KEY,
                     'Content-Type': 'application/json',
                 },
             })
