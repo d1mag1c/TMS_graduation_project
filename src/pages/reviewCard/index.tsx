@@ -90,7 +90,7 @@ const ReviewCard = () => {
                         </DescriptionBlock>
 
                     </BackgroundBlock>
-                    <VideoTrailer/>
+                    <VideoTrailer paramsId={paramsId}/>
                     <SimilarCards/>
 
                 </>

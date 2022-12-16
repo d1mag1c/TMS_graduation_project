@@ -1,31 +1,32 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import {VideoTrailerBlock} from './style';
 import ReactPlayer from "react-player";
 import {GetVideos} from "../../../data/getVideos";
-import {useParams} from "react-router-dom";
 
-const VideoTrailer = () => {
+type paramsIdType = {
+    paramsId: number
+}
 
-    const params = useParams()
-    const paramsId = Number(params.id)
+const VideoTrailer = ({paramsId}: paramsIdType) => {
+
     const videoArray = GetVideos(paramsId).video?.items
+    const [NewUrl, setNewUrl] = useState('')
 
-    const findURL = () => {
+    useEffect(() => {
 
-        if (videoArray?.length) {
+        if(videoArray) {
+            setNewUrl(videoArray.filter(e => e.url?.includes('youtube'))[0]?.url)
+            // setNewUrl(videoArray.find(e => e.url?.includes('youtube')).url)
+        } else setNewUrl('')
 
-            return videoArray.map(e => e.url).slice(0, 1)[0]
-        } else return ''
-    }
-console.log(findURL())
+    },[videoArray, paramsId, NewUrl])
+
     return (
         <>
-            {videoArray &&
+            {NewUrl &&
                 < VideoTrailerBlock>
-                    {paramsId && <ReactPlayer
-                        className='react_player'
-                        url={findURL()}/>
-                    }
+                    <ReactPlayer
+                        url={NewUrl}/>
                 </VideoTrailerBlock>}
 
         </>
