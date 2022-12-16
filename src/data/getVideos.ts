@@ -22,7 +22,7 @@ export const GetVideos = (id: number) => {
             )
             .catch(err => console.log(err))
 
-    }, [])
+    }, [id, URLVideoCard])
 
 
     return {video}

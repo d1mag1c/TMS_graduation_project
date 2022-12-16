@@ -24,38 +24,3 @@ export const SimilarTitleBlock = styled.div`
     margin-right: 10px;
   }
 `
-
-export const SimilarCardsBlock = styled.div`
-  display: flex;
-  width: 100%;
-  overflow: hidden;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-  @media (max-width: 1050px) {
-    flex-wrap: wrap;
-  }
-`
-
-export const CardBlock = styled.div`
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  transition: 0.5s;
-  &:hover{
-    cursor: pointer;
-    scale: 1.05;
-    transition: 0.5s;
-  }
-`
-
-export const CardImgBlock = styled.div`
-  width: 100%;
-  height: 100%;
-  max-width: 200px;
-`
-
-export const CardImg = styled.img`
-  width: 100%;
-  height: 100%;
-`
