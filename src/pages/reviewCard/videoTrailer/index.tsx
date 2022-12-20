@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {VideoTrailerBlock} from './style';
 import ReactPlayer from "react-player";
-import {GetVideos} from "../../../data/getVideos";
+import {GetVideo} from "../../../data/getVideo";
 
 type paramsIdType = {
     paramsId: number
@@ -9,7 +9,7 @@ type paramsIdType = {
 
 const VideoTrailer = ({paramsId}: paramsIdType) => {
 
-    const videoArray = GetVideos(paramsId).video?.items
+    const videoArray = GetVideo(paramsId).video?.items
     const [NewUrl, setNewUrl] = useState('')
 
     useEffect(() => {
