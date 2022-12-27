@@ -1,9 +1,13 @@
-import React from 'react';
+import React, { FC } from 'react';
 import {BorderIcon1, BorderIcon2, IconBlock} from "./iconAdvancedSearch";
 
-const IconAdvancedSearch = () => {
+type IconAdvancedSearchType = {
+    onClick: () => void
+}
+
+const IconAdvancedSearch:FC<IconAdvancedSearchType> = ({onClick}) => {
     return (
-        <IconBlock>
+        <IconBlock onClick={onClick}>
             <BorderIcon1/>
             <BorderIcon2/>
         </IconBlock>

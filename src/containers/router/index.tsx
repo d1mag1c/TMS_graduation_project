@@ -11,7 +11,8 @@ const RouteComponent = () => {
             <Route path={'/'} element={<Home/>}/>
             <Route path='top_films/:value' element={< TopFilms/>} />
             <Route path='review/:id' element={<ReviewCard/>}/>
-            <Route path={'/films'} element={<SearchPage/>}/>
+            <Route path={'films'} element={<SearchPage/>}/>
+            {/*<Route path="*" element={<NotFound />} />*/}
         </Routes>
     );
 };

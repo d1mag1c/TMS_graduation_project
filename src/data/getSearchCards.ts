@@ -1,15 +1,14 @@
 import {useEffect, useState} from "react";
 import {CardsHomeType} from "../types";
 import {API_KEY} from "../constants";
+import {useLocation, useParams} from "react-router-dom";
 
-type SearchParamsType = {
-    keyword?:string | null
-}
+export const GetSearchCards = () => {
 
-export const GetSearchCards = (keyword: any) => {
-
+    const params = useLocation().search;
     const [cards, setCards] = useState<CardsHomeType>()
-    const URLSearchCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films?order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&keyword=${keyword}&page=1`;
+
+    const URLSearchCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films${params}&page=${1}`;
 
     useEffect(() => {
 
@@ -26,8 +25,8 @@ export const GetSearchCards = (keyword: any) => {
             .catch(err => console.log(err))
 
 
-    }, [URLSearchCards, keyword])
+    }, [URLSearchCards, params])
+    // console.log( URLSearchCards)
 
-// console.log( URLSearchCards)
     return {cards}
 }

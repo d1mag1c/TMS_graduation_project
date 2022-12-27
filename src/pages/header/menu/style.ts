@@ -17,7 +17,7 @@ export const MenuBlock = styled.section<{ burgerState: boolean }>`
 
   ${({burgerState}) => burgerState
           ? '  &:before{\n    content: \'\\2716\';\n    font-size: 30px;\n  }'
-          : '&:after{\n  content: \'Menu\';\n}'
+          : '&:after{\n  content: \'Меню\';\n}'
   };
 
 
