@@ -1,8 +1,7 @@
-import React, {Dispatch, FC, SetStateAction, useRef} from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import {AdvancedSearchBlock, AdvButtonClose,FormBlock,InputBlock, InputButton} from "./style";
 import {useThemeSelector} from "../../../../store";
-import {text} from "stream/consumers";
-import {createSearchParams, useLocation, useNavigate} from "react-router-dom";
+import {createSearchParams, useNavigate} from "react-router-dom";
 
 type AdvancedSearchType = {
     stateAdvSearch: boolean,

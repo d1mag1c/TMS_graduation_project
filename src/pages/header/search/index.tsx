@@ -46,7 +46,6 @@ const Search = () => {
         setstateAdvSearch(state => !state)
     }
 
-
     return (
         <>        <SearchBlock>
             <InputSearch placeholder='Поиск...' onChange={handleSubmit} onKeyDown={SearchEnter} value={value}/>

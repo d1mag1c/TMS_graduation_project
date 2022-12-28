@@ -1,14 +1,15 @@
 import {useEffect, useState} from "react";
 import {CardsHomeType} from "../types";
 import {API_KEY} from "../constants";
-import {useLocation, useParams} from "react-router-dom";
+import {useLocation} from "react-router-dom";
 
 export const GetSearchCards = () => {
 
     const params = useLocation().search;
     const [cards, setCards] = useState<CardsHomeType>()
+    const [page, setPage] = useState(1)
 
-    const URLSearchCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films${params}&page=${1}`;
+    const URLSearchCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films${params}&page=${page}`;
 
     useEffect(() => {
 
@@ -25,8 +26,8 @@ export const GetSearchCards = () => {
             .catch(err => console.log(err))
 
 
-    }, [URLSearchCards, params])
+    }, [URLSearchCards, params, page])
     // console.log( URLSearchCards)
 
-    return {cards}
+    return {cards, page, setPage}
 }
