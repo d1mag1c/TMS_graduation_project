@@ -9,7 +9,7 @@ export const HeaderBlock = styled.section`
   width: 100%;
   height: 80px;
   background: rgb(79, 13, 100);
-  z-index: 10;
+  z-index: 12;
   @media (max-width: 1050px) {
     flex-wrap: wrap;
     height: 170px;

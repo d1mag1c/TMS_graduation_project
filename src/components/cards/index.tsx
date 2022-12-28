@@ -10,7 +10,7 @@ import {
     CardYearAndGenres
 } from "./style";
 import {useNavigate} from "react-router-dom";
-import { colorChange } from '../../utils/colorChange';
+import {colorChange} from '../../utils/colorChange';
 import {genreTranslate} from "../../utils/genreTranslate";
 
 type CardType = {
@@ -28,9 +28,9 @@ const Card: FC<CardType> = ({props}) => {
     return (
         <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
             <CardImg image={props.posterUrl}>
-                {props.ratingImdb ?
-                    <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating> :
+                {props.ratingKinopoisk ?
                     <CardRating colorChange={colorChange(props.ratingKinopoisk)}>{props.ratingKinopoisk}</CardRating>
+                    : <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating>
                 }
                 <CardGenre>{genreTranslate(props.type)}</CardGenre>
             </CardImg>

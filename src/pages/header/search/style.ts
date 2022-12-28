@@ -25,7 +25,9 @@ export const InputSearch = styled.input`
     cursor: pointer;
     border-color: white;
   }
-  
+  &:focus {
+    cursor: auto;
+  }
 `
 
 

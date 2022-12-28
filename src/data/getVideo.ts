@@ -2,7 +2,7 @@ import {useEffect, useState} from "react";
 import {VideoType} from "../types";
 import {API_KEY} from "../constants";
 
-export const GetVideos = (id: number) => {
+export const GetVideo = (id: number) => {
 
     const [video, setVideo] = useState<VideoType>()
 
