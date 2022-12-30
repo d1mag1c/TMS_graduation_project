@@ -13,7 +13,6 @@ const Header = () => {
     const [burgerState, setBurgerState] = useState(false)
     const [stateAdvSearch, setStateAdvSearch] = useState(false)
 
-
     const params = new URLSearchParams(document.location.search);
     const keywordParams = params.get('keyword') || ''
     const [valueSearch, setValueSearch] = useState(keywordParams)
