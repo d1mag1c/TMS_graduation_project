@@ -1,16 +1,16 @@
-import React, {FC} from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import {MenuBlock} from './style';
 
 type OnclickType = {
-    changeStateBurger: () => void,
+    setBurgerState: Dispatch<SetStateAction<boolean>>,
     burgerState: boolean
 }
 
 
-const Menu: FC<OnclickType> = ({changeStateBurger, burgerState}) => {
+const Menu: FC<OnclickType> = ({setBurgerState, burgerState}) => {
 
     return (
-        <MenuBlock onClick={changeStateBurger} burgerState={burgerState}/>
+        <MenuBlock onClick={() => setBurgerState(true)} burgerState={burgerState}/>
     );
 };
 

@@ -104,13 +104,13 @@ export type CardsSimilarType = {
 }
 
 export type ItemsSimilarType = {
-    filmId:number,
-    nameRu:string,
-    nameEn:string,
-    nameOriginal:string,
-    posterUrl:string,
-    posterUrlPreview:string,
-    relationType:string
+    filmId: number,
+    nameRu: string,
+    nameEn: string,
+    nameOriginal: string,
+    posterUrl: string,
+    posterUrlPreview: string,
+    relationType: string
 }
 
 export type VideoType = {
@@ -123,3 +123,19 @@ type ItemsVideoType = {
     name: string,
     site: string
 }
+
+export type GenresArrayType = {
+    id: number,
+    genre: string
+}
+
+export type CountriesArrayType = {
+    "id": number,
+    "country": string
+}
+
+export type GenresCountriesType = {
+    genres: GenresArrayType[],
+    countries: CountriesArrayType[]
+}
+

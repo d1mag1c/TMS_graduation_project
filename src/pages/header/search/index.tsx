@@ -1,58 +1,54 @@
-import React, {useState} from 'react';
+import React, {Dispatch, FC, SetStateAction} from 'react';
 import IconAdvancedSearch from '../../../components/iconAdvancedSearch';
 import {IconSearch} from '../../../components/iconSearch/iconSearch';
 import {InputSearch, SearchBlock} from './style';
 import {createSearchParams, useNavigate} from "react-router-dom";
-import AdvancedSearch from './advancedSearch';
 
-const Search = () => {
+type SearchType = {
+    setstateAdvSearch: Dispatch<SetStateAction<boolean>>,
+    handleSubmitValue: (e: React.ChangeEvent<HTMLInputElement>) => void
+    valueSearch: string
+}
 
-    const params = new URLSearchParams(document.location.search);
-    const keywordParams = params.get('keyword') || ''
-    const [value, setValue] = useState(keywordParams)
-    const [stateAdvSearch, setstateAdvSearch] = useState(false)
+
+const Search:FC<SearchType> = ({setstateAdvSearch, handleSubmitValue, valueSearch}) => {
 
     const navigate = useNavigate()
 
-    const handleSubmit = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.preventDefault()
-        setValue(e.target.value)
-    }
 
     const passSearchParams = () => {
-        if (value) {
+        if (valueSearch) {
             navigate({
                 pathname: "films",
                 search: `?${createSearchParams({
-                    keyword: value
+                    keyword: valueSearch
                 })}`
             });
         }
     }
     const SearchEnter = (e: React.KeyboardEvent<HTMLInputElement>): void => {
-        if (e.key === 'Enter' && value) {
+        if (e.key === 'Enter' && valueSearch) {
             e.preventDefault()
             e.stopPropagation()
             navigate({
                 pathname: "films",
                 search: `?${createSearchParams({
-                    keyword: value
+                    keyword: valueSearch
                 })}`
             });
         }
     }
 
-    const changeStateSearch = () => {
-        setstateAdvSearch(state => !state)
-    }
+
 
     return (
-        <>        <SearchBlock>
-            <InputSearch placeholder='Поиск...' onChange={handleSubmit} onKeyDown={SearchEnter} value={value}/>
-            <IconAdvancedSearch onClick={changeStateSearch}/>
-            <IconSearch onClick={passSearchParams}/>
-        </SearchBlock>
-            <AdvancedSearch stateAdvSearch={stateAdvSearch} setstateAdvSearch={setstateAdvSearch} value={value}/>
+        <>
+            <SearchBlock>
+                <InputSearch placeholder='Поиск...' onChange={handleSubmitValue} onKeyDown={SearchEnter} value={valueSearch}/>
+                <IconAdvancedSearch onClick={() => setstateAdvSearch(true)}/>
+                <IconSearch onClick={passSearchParams}/>
+            </SearchBlock>
+
         </>
 
     );

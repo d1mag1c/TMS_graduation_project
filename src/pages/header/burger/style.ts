@@ -10,7 +10,7 @@ export const BurgerBlock = styled.section<{ theme?: boolean, burgerState?: boole
   transition: 0.8s;
   transform: translateX(${({burgerState}) => burgerState ? '0px' : '-300px'});
   border-right: 2px solid rgb(79, 13, 100);
-  z-index: 11;
+  z-index: 15;
 
   @media (max-width: 1050px) {
     top: 170px;

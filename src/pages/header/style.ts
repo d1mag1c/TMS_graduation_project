@@ -18,11 +18,12 @@ export const HeaderBlock = styled.section`
 
 export const BackgroundBlock = styled.div`
   position: fixed;
+  top:0;
+  left: 0;
   width: 100%;
   height: 100%;
-  z-index: 9;
+  z-index: 13;
   background: rgba(84, 84, 84, 0.45);
-
 `
 export const OverflowBodyStyle  = createGlobalStyle`
     body{
