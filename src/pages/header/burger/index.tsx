@@ -1,7 +1,7 @@
 import React, {FC, SetStateAction} from 'react';
 import {BurgerBlock, BurgerList, LiGoToHome, ListLi} from "./style";
 import {useThemeSelector} from "../../../store";
-import {useNavigate} from "react-router-dom";
+import {createSearchParams, useNavigate} from "react-router-dom";
 import {TOP_100, TOP_250 } from '../../../constants';
 
 type BurgerStateType = {
@@ -36,9 +36,36 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
                     navigate(`top_films/${TOP_250}`)
                     window.scroll({top: 0})
                 }}>Топ 250</ListLi>
-                <ListLi onClick={closeBurger}>Сериалы</ListLi>
-                <ListLi onClick={closeBurger}>Мини-сериалы</ListLi>
-                <ListLi onClick={closeBurger}>ТВ-шоу</ListLi>
+                <ListLi onClick={() => {
+                    closeBurger()
+                    navigate({
+                        pathname: "films",
+                        search: `?${createSearchParams({
+                            type: 'TV_SERIES'
+                        })}`
+                    });
+                    window.scroll({top: 0})
+                }}>Сериалы</ListLi>
+                <ListLi onClick={() => {
+                    closeBurger()
+                    navigate({
+                        pathname: "films",
+                        search: `?${createSearchParams({
+                            type: 'MINI_SERIES'
+                        })}`
+                    });
+                    window.scroll({top: 0})
+                }}>Мини-сериалы</ListLi>
+                <ListLi onClick={() => {
+                    closeBurger()
+                    navigate({
+                        pathname: "films",
+                        search: `?${createSearchParams({
+                            type: 'TV_SHOW'
+                        })}`
+                    });
+                    window.scroll({top: 0})
+                }}>ТВ-шоу</ListLi>
             </BurgerList>
         </BurgerBlock>
     );

@@ -99,7 +99,7 @@ export const InputBlock = styled.div`
   &:first-of-type{
 
     & div, & input {
-      width: 90%;
+      width: 91%;
     }
   }
   @media (max-width: 1050px) {
