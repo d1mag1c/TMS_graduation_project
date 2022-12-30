@@ -39,7 +39,6 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
                 <ListLi onClick={closeBurger}>Сериалы</ListLi>
                 <ListLi onClick={closeBurger}>Мини-сериалы</ListLi>
                 <ListLi onClick={closeBurger}>ТВ-шоу</ListLi>
-                <ListLi>{'Быстрый поиск >>>'}</ListLi>
             </BurgerList>
         </BurgerBlock>
     );
