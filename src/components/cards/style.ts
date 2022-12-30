@@ -10,7 +10,7 @@ export const CardBlock = styled.div`
 
   &:hover {
     transition: 1s;
-    transform: scale(1.05) skewY( 3deg);
+    transform: scale(1.05) skewY(3deg);
     cursor: pointer;
     box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
 
@@ -89,4 +89,46 @@ export const CardYearAndGenres = styled.p`
 export const CardsCountries = styled.p`
   display: flex;
   margin-top: auto;
+`
+
+export const AwaitCardBlock = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 250px;
+  height: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  transition: 1s;
+  overflow: hidden;
+
+  &:hover {
+    transition: 1s;
+    transform: scale(1.05) skewY(3deg);
+    cursor: pointer;
+    box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
+
+  }
+`
+
+export const AwaitImgBlock = styled.div<{ image: string }>`
+  width: 100%;
+  height: 80%;
+  background-image: url(${({image}) => image});
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  display: flex;
+
+  & div {
+  margin: 0;
+  }
+`
+
+export const AwaitDescription = styled.div`
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  display: flex;
+  padding: 10px;
+  height: 20%;
 `

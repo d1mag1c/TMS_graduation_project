@@ -10,6 +10,7 @@ import {
     CardYearAndGenres
 } from "./style";
 import {useNavigate} from "react-router-dom";
+import { colorChange } from '../../utils/colorChange';
 
 type CardTopFilmsType = {
     props: FilmsType
@@ -19,19 +20,6 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
 
     const navigate = useNavigate()
 
-    const colorChange = () => {
-        const rating = Number(props.rating);
-        if (rating < 7 && rating > 5) {
-            return '#c4aa00'
-        }
-        if (rating >= 7) {
-            return 'green'
-        }
-        if (rating <= 5) {
-            return 'red'
-        }
-    }
-
     const clickCard = (id: number) => {
         navigate(`/review/${id}`)
         window.scroll({top: 0})
@@ -40,7 +28,7 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
     return (
         <CardBlock id={String(props.filmId)} onClick={() => clickCard(props.filmId)}>
             <CardImg image={props.posterUrl}>
-                {props.rating && <CardRating colorChange={colorChange()}>{props.rating}</CardRating>}
+                {props.rating && <CardRating colorChange={colorChange(Number(props.rating))}>{props.rating}</CardRating>}
             </CardImg>
             <CardInfo>
                 <CardTitle>{props.nameRu ? props.nameRu : props.nameEn}</CardTitle>

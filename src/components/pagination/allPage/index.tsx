@@ -22,7 +22,7 @@ export const PaginationBlock = ({ changePage, pageCount, forcePage }: Pagination
                     nextLabel=">"
                     onPageChange={changePage}
                     pageRangeDisplayed={4}
-                    pageCount={pageCount}
+                    pageCount={pageCount < 21 ? pageCount : 20}
                     previousLabel="<"
                 />}
             </PaginateContainer>
