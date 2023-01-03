@@ -1,4 +1,4 @@
-import React, {ReactNode, useState} from 'react';
+import React from 'react';
 import Slider from "react-slick";
 import {CardBlock, CardImg, CardImgBlock, SimilarCardsBlock} from "./style";
 import {useNavigate, useParams} from "react-router-dom";
