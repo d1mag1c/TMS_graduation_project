@@ -94,7 +94,7 @@ export const CardsCountries = styled.p`
 export const AwaitCardBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 200px;
   height: 300px;
   margin: 20px;
   border-radius: 10px;
