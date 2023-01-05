@@ -6,6 +6,7 @@ import { ALL } from '../../../constants';
 import { GetHomeCards } from '../../../data/getHomeCards';
 import {ButtonGetMore, Wrapper, WrapperCards} from "./style";
 import AwaitFilms from "./awaitFilms";
+import {useFavoriteSelector, useUserSelector} from "../../../store";
 
 const Home = () => {
 

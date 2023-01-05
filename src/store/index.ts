@@ -8,13 +8,17 @@ import {all} from "redux-saga/effects";
 import { signUpSaga } from "./sagaRegUser/saga";
 import {signInSaga} from "./sagaRegUser/signInSaga";
 import createSagaMiddleware from 'redux-saga'
+import {favoriteReducer} from "./favoriteReducer";
+import {FavoriteReducerType} from "./favoriteReducer/type";
 
 export const useThemeSelector: TypedUseSelectorHook<themeReducerType> = useSelector
 export const useUserSelector: TypedUseSelectorHook<AuthStateType> = useSelector
+export const useFavoriteSelector: TypedUseSelectorHook<FavoriteReducerType> = useSelector
 
 export const reducer = combineReducers({
     themeReducer,
-    authReducer
+    authReducer,
+    favoriteReducer
 })
 
 const sagaMiddleware = createSagaMiddleware()
