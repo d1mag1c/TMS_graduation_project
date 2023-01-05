@@ -1,14 +1,21 @@
-import React from 'react';
-import {IconUser, LoginBlock} from "./style";
-import {useNavigate} from "react-router-dom";
+import React, {Dispatch, FC, SetStateAction} from 'react';
 
-const Login = () => {
-    const navigation = useNavigate()
+import {useUserSelector} from '../../../store';
+import LoggedOut from "./loggedOut";
+import LoggedIn from "./loggedIn";
 
+export type OnclickType = {
+    setLoginState: Dispatch<SetStateAction<boolean>>,
+    loginState: boolean
+}
+
+const Login:FC<OnclickType> = ({loginState, setLoginState}) => {
+
+    const user = useUserSelector(state => state.authReducer.user?.username)
     return (
-        <LoginBlock onClick={() => navigation('registration')}>
-            <IconUser></IconUser>
-        </LoginBlock>
+        <>
+            {user?.length ? <LoggedIn loginState={loginState} setLoginState={setLoginState}/> : <LoggedOut/>}
+        </>
     );
 };
 

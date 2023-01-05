@@ -7,11 +7,13 @@ import {
     CardInfo,
     CardRating, CardsCountries,
     CardTitle,
-    CardYearAndGenres
+    CardYearAndGenres, FavoriteBlock
 } from "./style";
 import {useNavigate} from "react-router-dom";
 import {colorChange} from '../../utils/colorChange';
 import {genreTranslate} from "../../utils/genreTranslate";
+import {FavoriteIcon} from "../svg/favoriteIcon";
+import {useThemeSelector} from "../../store";
 
 type CardType = {
     props: ItemsType
@@ -24,6 +26,7 @@ const Card: FC<CardType> = ({props}) => {
         navigate(`/review/${id}`)
         window.scroll({top: 0})
     }
+    const theme = useThemeSelector(state => state.themeReducer)
 
     return (
         <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
@@ -41,9 +44,13 @@ const Card: FC<CardType> = ({props}) => {
                         <span>{props.year}</span>,
                         {props.genres.map(e => ' ' + e.genre).slice(0, 5).toString()}
                     </CardYearAndGenres>
-                    <CardsCountries>
-                        {props.countries.map(e => ' ' + e.country).slice(0, 2).toString()}
-                    </CardsCountries>
+                    <FavoriteBlock theme={theme}>
+                        <CardsCountries>
+                            {props.countries.map(e => ' ' + e.country).slice(0, 2).toString()}
+                        </CardsCountries>
+                        <FavoriteIcon/>
+                    </FavoriteBlock>
+
                 </CardDescription>
             </CardInfo>
         </CardBlock>
