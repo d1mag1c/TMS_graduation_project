@@ -1,20 +1,26 @@
 import styled from "styled-components";
 
-export const CardBlock = styled.div`
-  width: 250px;
-  height: 490px;
-  margin: 20px;
-  border-radius: 10px;
-  transition: 1s;
-  overflow: hidden;
 
+export const WrapperCard = styled.div`
+position: relative;
+  margin: 20px;
+  transition: 1s;
   &:hover {
     transition: 1s;
     transform: scale(1.02) skewY(3deg);
     cursor: pointer;
     box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
+    border-radius: 10px;
 
   }
+`
+
+export const CardBlock = styled.div`
+  width: 250px;
+  height: 490px;
+
+  overflow: hidden;
+
 `
 
 export const CardImg = styled.div<{ image: string }>`
@@ -95,20 +101,10 @@ export const CardsCountries = styled.p`
 export const AwaitCardBlock = styled.div`
   display: flex;
   flex-direction: column;
-  width: 200px;
-  height: 300px;
-  margin: 20px;
-  border-radius: 10px;
-  transition: 1s;
+  width: 230px;
+  height: 320px;
   overflow: hidden;
-
-  &:hover {
-    transition: 1s;
-    transform: scale(1.02) skewY(3deg);
-    cursor: pointer;
-    box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
-
-  }
+  
 `
 
 export const AwaitImgBlock = styled.div<{ image: string }>`
@@ -132,15 +128,13 @@ export const AwaitDescription = styled.div`
   display: flex;
   padding: 10px;
   height: 20%;
+  width: 90%;
 `
 
 export const FavoriteBlock = styled.div`
-  //   background: ${({theme}) => theme.background};
-   display: flex; 
-  justify-content: space-between;
-  align-items: center;
-  margin-top: auto;
-& svg{
-  margin: 5px 10px;
-}
+
+    position: absolute;
+    bottom: 12px;
+    right: 12px;
+
     `

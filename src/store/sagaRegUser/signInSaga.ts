@@ -5,7 +5,6 @@ import {SignUpSuccessPayload} from "../authReducer/type";
 import {getProfile} from './getUser';
 
 type UserFavoriteType = {
-    user: string;
     favorites?: number[];
 };
 
@@ -43,12 +42,14 @@ export function* signIn(action: PayloadAction<SignInPayload>) {
         const userInfo: SignUpSuccessPayload = yield call(getProfile);
         yield put(registerSuccess(userInfo))
 
-        const userFavorites: UserFavoriteType = {
-            user: userInfo.username,
-            favorites: []
-        };
+        const findUser = localStorage.getItem(`${userInfo.username}`)
 
-        localStorage.setItem('user', JSON.stringify(userFavorites))
+        if(!findUser?.length){
+            const userFavorites: UserFavoriteType = {
+                favorites: []
+            };
+            localStorage.setItem(`${userInfo.username}`, JSON.stringify(userFavorites))
+        }
 
         console.log(userInfo);
     } catch (error: any) {

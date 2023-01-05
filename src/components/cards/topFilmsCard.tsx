@@ -7,10 +7,12 @@ import {
     CardInfo,
     CardRating, CardsCountries,
     CardTitle,
-    CardYearAndGenres
+    CardYearAndGenres, FavoriteBlock, WrapperCard
 } from "./style";
 import {useNavigate} from "react-router-dom";
 import { colorChange } from '../../utils/colorChange';
+import {FavoriteIcon} from "../svg/favoriteIcon";
+import {useUserSelector} from "../../store";
 
 type CardTopFilmsType = {
     props: FilmsType
@@ -24,8 +26,13 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
         navigate(`/review/${id}`)
         window.scroll({top: 0})
     }
+    const user = useUserSelector(state => state.authReducer.user?.username)
 
     return (
+        <WrapperCard>
+        {user && <FavoriteBlock>
+            <FavoriteIcon id={props.filmId}/>
+        </FavoriteBlock>}
         <CardBlock id={String(props.filmId)} onClick={() => clickCard(props.filmId)}>
             <CardImg image={props.posterUrl}>
                 {props.rating && <CardRating colorChange={colorChange(Number(props.rating))}>{props.rating}</CardRating>}
@@ -43,6 +50,7 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
                 </CardDescription>
             </CardInfo>
         </CardBlock>
+            </WrapperCard>
     );
 };
 

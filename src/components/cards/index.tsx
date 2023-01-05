@@ -7,13 +7,13 @@ import {
     CardInfo,
     CardRating, CardsCountries,
     CardTitle,
-    CardYearAndGenres, FavoriteBlock
+    CardYearAndGenres, FavoriteBlock, WrapperCard
 } from "./style";
 import {useNavigate} from "react-router-dom";
 import {colorChange} from '../../utils/colorChange';
 import {genreTranslate} from "../../utils/genreTranslate";
 import {FavoriteIcon} from "../svg/favoriteIcon";
-import {useThemeSelector} from "../../store";
+import {useUserSelector} from "../../store";
 
 type CardType = {
     props: ItemsType
@@ -26,34 +26,40 @@ const Card: FC<CardType> = ({props}) => {
         navigate(`/review/${id}`)
         window.scroll({top: 0})
     }
-    const theme = useThemeSelector(state => state.themeReducer)
+
+    const user = useUserSelector(state => state.authReducer.user?.username)
 
     return (
-        <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
-            <CardImg image={props.posterUrl}>
-                {props.ratingKinopoisk ?
-                    <CardRating colorChange={colorChange(props.ratingKinopoisk)}>{props.ratingKinopoisk}</CardRating>
-                    : <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating>
-                }
-                <CardGenre>{genreTranslate(props.type)}</CardGenre>
-            </CardImg>
-            <CardInfo>
-                <CardTitle>{props.nameRu ? props.nameRu : props.nameOriginal}</CardTitle>
-                <CardDescription>
-                    <CardYearAndGenres>
-                        <span>{props.year}</span>,
-                        {props.genres.map(e => ' ' + e.genre).slice(0, 5).toString()}
-                    </CardYearAndGenres>
-                    <FavoriteBlock theme={theme}>
+        <WrapperCard>
+            {user && <FavoriteBlock>
+                <FavoriteIcon id={props.kinopoiskId}/>
+            </FavoriteBlock>}
+            <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
+                <CardImg image={props.posterUrl}>
+                    {props.ratingKinopoisk ?
+                        <CardRating
+                            colorChange={colorChange(props.ratingKinopoisk)}>{props.ratingKinopoisk}</CardRating>
+                        : <CardRating colorChange={colorChange(props.ratingImdb)}>{props.ratingImdb}</CardRating>
+                    }
+                    <CardGenre>{genreTranslate(props.type)}</CardGenre>
+                </CardImg>
+                <CardInfo>
+                    <CardTitle>{props.nameRu ? props.nameRu : props.nameOriginal}</CardTitle>
+                    <CardDescription>
+                        <CardYearAndGenres>
+                            <span>{props.year}</span>,
+                            {props.genres.map(e => ' ' + e.genre).slice(0, 5).toString()}
+                        </CardYearAndGenres>
+
                         <CardsCountries>
                             {props.countries.map(e => ' ' + e.country).slice(0, 2).toString()}
                         </CardsCountries>
-                        <FavoriteIcon/>
-                    </FavoriteBlock>
 
-                </CardDescription>
-            </CardInfo>
-        </CardBlock>
+
+                    </CardDescription>
+                </CardInfo>
+            </CardBlock>
+        </WrapperCard>
     );
 };
 
