@@ -4,7 +4,7 @@ export const SearchBlock = styled.section`
   display: flex;
   width: 40%;
   position: relative;
-  margin: 0 150px 0 auto;
+  margin: 0 100px 0 auto;
   @media (max-width: 1050px) {
     order: 5;
     width: 100%;

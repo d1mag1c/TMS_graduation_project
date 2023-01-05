@@ -7,6 +7,7 @@ import Logo from './logo';
 import ThemeSwitcher from "./themeSwitcher";
 import Burger from "./burger";
 import AdvancedSearch from './advancedSearch';
+import LoginMenu from "./loginMenu";
 
 const Header = () => {
 
@@ -21,23 +22,30 @@ const Header = () => {
         e.preventDefault()
         setValueSearch(e.target.value)
     }
+
+    const [loginState, setLoginState] = useState(false)
+
     return (
         <>
             {burgerState && <BackgroundBlock onClick={() => setBurgerState(false)}/>}
             {burgerState && <OverflowBodyStyle/>}
             {stateAdvSearch && <BackgroundBlock onClick={() => setStateAdvSearch(false)}/>}
             {stateAdvSearch && <OverflowBodyStyle/>}
+            {loginState && <BackgroundBlock onClick={() => setLoginState(false)}/>}
+            {loginState && <OverflowBodyStyle/>}
 
             <Burger burgerState={burgerState} setBurgerState={setBurgerState}/>
-            <AdvancedSearch stateAdvSearch={stateAdvSearch} setStateAdvSearch={setStateAdvSearch} valueSearch={valueSearch} handleSubmitValue={handleSubmit}/>
-
+            <AdvancedSearch stateAdvSearch={stateAdvSearch} setStateAdvSearch={setStateAdvSearch}
+                            valueSearch={valueSearch} handleSubmitValue={handleSubmit}/>
+            <LoginMenu loginState={loginState} setLoginState={setLoginState}/>
             <HeaderBlock>
 
                 <Menu setBurgerState={setBurgerState} burgerState={burgerState}/>
                 <Logo/>
-                <Search setstateAdvSearch={setStateAdvSearch} valueSearch={valueSearch} handleSubmitValue={handleSubmit}/>
+                <Search setstateAdvSearch={setStateAdvSearch} valueSearch={valueSearch}
+                        handleSubmitValue={handleSubmit}/>
                 <WrapperLoginStyle>
-                    <Login/>
+                    <Login loginState={loginState} setLoginState={setLoginState}/>
                     <ThemeSwitcher/>
                 </WrapperLoginStyle>
 

@@ -4,6 +4,11 @@ import {SIGNIN_REQUEST, SignInError, signInFailure, SignInPayload, SignInSuccess
 import {SignUpSuccessPayload} from "../authReducer/type";
 import {getProfile} from './getUser';
 
+type UserFavoriteType = {
+    user: string;
+    favorites?: number[];
+};
+
 const signInRequest = async (
     payload: SignInPayload
 ): Promise<SignInSuccessPayload> => {
@@ -37,6 +42,14 @@ export function* signIn(action: PayloadAction<SignInPayload>) {
 
         const userInfo: SignUpSuccessPayload = yield call(getProfile);
         yield put(registerSuccess(userInfo))
+
+        const userFavorites: UserFavoriteType = {
+            user: userInfo.username,
+            favorites: []
+        };
+
+        localStorage.setItem('user', JSON.stringify(userFavorites))
+
         console.log(userInfo);
     } catch (error: any) {
         yield put(signInFailure(error))
