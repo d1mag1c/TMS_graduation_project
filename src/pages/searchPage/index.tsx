@@ -4,6 +4,7 @@ import Card from "../../components/cards";
 import {Wrapper, WrapperCards} from "../main/home/style";
 import {PaginationBlock} from "../../components/pagination/allPage";
 import Loader from "../../components/loader";
+import {SearchPageBlock} from "./style";
 
 const SearchPage = () => {
 
@@ -17,7 +18,7 @@ const SearchPage = () => {
     }
 
     return (
-        <>
+        <SearchPageBlock>
             {searchCards.cards?.items.length ? <Wrapper>
                 <WrapperCards>
                     {searchCards.cards?.items.length  &&
@@ -25,7 +26,7 @@ const SearchPage = () => {
                 </WrapperCards>
                 <PaginationBlock pageCount={searchCards.cards.totalPages} forcePage={force} changePage={changePage}/>
             </Wrapper> : <Loader/>}
-        </>
+        </SearchPageBlock>
 
     );
 };

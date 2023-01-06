@@ -28,7 +28,7 @@ const TopFilms = () => {
         <>
             {cardsArray.cards?.films ?
                 < TopFilmsBlock >
-                    <TitleHead>{params === TOP_100 ? 'Топ 100:' : 'Топ 250:'}</TitleHead>
+                    <TitleHead>{params === TOP_100 ? 'Топ 100' : 'Топ 250'}</TitleHead>
                     <WrapperCards>
                         {cardsArray.cards?.films.map(cards => <TopFilmsCard props={cards} key={cards.filmId}/>)}
                     </WrapperCards>

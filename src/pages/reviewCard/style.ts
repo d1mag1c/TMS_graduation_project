@@ -7,7 +7,7 @@ export const ReviewCardBlock = styled.section`
   width: 100%;
   max-width: 1600px;
   height: max-content;
-  
+
 `
 
 export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }>`
@@ -18,7 +18,7 @@ export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }
   display: flex;
   padding: 100px 100px 50px 100px;
   flex-direction: column;
-  @media (max-width: 1050px){
+  @media (max-width: 1050px) {
     padding: 160px 50px 50px 50px;
   }
 `
@@ -26,15 +26,17 @@ export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }
 export const WrapperInfo = styled.div`
   display: flex;
   @media (max-width: 950px) {
-flex-direction: column;
+    flex-direction: column;
   }
-  
+
 `
 export const ImgBlock = styled.div`
   width: 330px;
-  height: 460px;
+  height: max-content;
   min-width: 320px;
-  margin-right: 80px;
+  margin: 0 80px 0 0;
+  font-size: 0;
+
   @media (max-width: 950px) {
     margin: 0 auto;
   }
@@ -42,7 +44,84 @@ export const ImgBlock = styled.div`
 
 export const ImgReviewCard = styled.img`
   width: 100%;
-  height: 100%;
+  height: 70%;
+
+`
+
+export const FavoriteAndLinkBlock = styled.div`
+  display: flex;
+  width: 100%;
+  height: 50px;
+  border: 2px solid rgb(79, 13, 100);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+
+  & div:hover {
+    cursor: pointer;
+  }
+`
+export const FavoriteBlock = styled.div<{ state?: number }>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  border-right: 2px solid rgb(79, 13, 100);
+  font-size: 14px;
+  background: ${({state}) => state ? 'rgb(79, 13, 100)' : 'none'};
+  position: relative;
+
+  &:hover p {
+    color: ${({state, theme}) => state ? 'white' : `${theme.colorHover}`}
+  }
+
+  &:hover svg {
+    fill: ${({state, theme}) => state ? 'white' : `${theme.colorHover}`}
+  }
+
+  & p {
+    margin-right: 10px;
+    color: ${({state, theme}) => state ? 'white' : `${theme.color}`};
+  }
+
+  & svg {
+    fill: ${({state, theme}) => state ? 'white' : `${theme.color}`};
+  }
+
+`
+
+export const LinkBlock = styled.div<{ state: boolean }>`
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 14px;
+  position: relative;
+  background: ${({state}) => state ? 'rgb(79, 13, 100)' : 'none'};
+  &  p {
+
+    color: ${({state, theme}) => state ? 'white' : `${theme.color}`};
+  }
+  &:hover p {
+    color: ${({theme}) => theme.colorHover};
+  }
+}
+`
+
+export const CopyMessage = styled.span`
+  position: absolute;
+  width: 90%;
+  height: 25px;
+  padding: 5px;
+  bottom: -30px;
+  right: 10px;
+  background: rgb(79, 13, 100);
+  border-radius: 10px;
+  color: white;
+  display: flex;
+  transition: 1s;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
 `
 
 export const InfoBlock = styled.div`
@@ -55,7 +134,6 @@ export const TitleRu = styled.h1`
   @media (max-width: 950px) {
     margin-top: 20px;
   }
-
 `
 
 export const TitleOriginal = styled.p`
@@ -71,7 +149,7 @@ export const RatingBlock = styled.ul`
   width: max-content;
   margin: 20px 0 60px;
   @media (max-width: 950px) {
-    
+
   }
 
 `

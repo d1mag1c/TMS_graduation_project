@@ -4,7 +4,7 @@ import {OnclickType} from "../login";
 import {LoginMenuBlock, LoginMenuLi, LoginMenuUl} from './style';
 import {useNavigate} from "react-router-dom";
 import SettingIcon from "../../../components/svg/settingIcon";
-import { FavoriteIcon } from '../../../components/svg/favoriteIcon';
+import { FavoriteIcon } from '../../../components/svg/favoriteIcon/favoriteIcon';
 
 
 const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
@@ -21,7 +21,7 @@ const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
                         setLoginState(false)
                         navigation('/favorites')
                     }}>
-                        {/*<FavoriteIcon/>*/}
+                        <FavoriteIcon/>
                         <p>Избранное</p>
                     </LoginMenuLi>
                     <LoginMenuLi onClick={() => {

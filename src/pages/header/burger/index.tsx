@@ -1,6 +1,6 @@
 import React, {FC, SetStateAction} from 'react';
 import {BurgerBlock, BurgerList, LiGoToHome, ListLi} from "./style";
-import {useThemeSelector} from "../../../store";
+import {useThemeSelector, useUserSelector} from "../../../store";
 import {createSearchParams, useNavigate} from "react-router-dom";
 import {TOP_100, TOP_250 } from '../../../constants';
 
@@ -15,6 +15,7 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
     const closeBurger = () => {
         setBurgerState(false)
     }
+    const user = useUserSelector(state => state.authReducer.user?.username)
 
     return (
         <BurgerBlock theme={theme} burgerState={burgerState}>
@@ -66,6 +67,11 @@ const Burger: FC<BurgerStateType> = ({burgerState, setBurgerState}) => {
                     });
                     window.scroll({top: 0})
                 }}>ТВ-шоу</ListLi>
+                {user && <ListLi onClick={() => {
+                    closeBurger()
+                    navigate('/favorites');
+                    window.scroll({top: 0})
+                }}>Избранное</ListLi>}
             </BurgerList>
         </BurgerBlock>
     );

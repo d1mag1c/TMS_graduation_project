@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 
 export const WrapperCard = styled.div`
-position: relative;
+  position: relative;
   margin: 20px;
   transition: 1s;
+
   &:hover {
     transition: 1s;
-    transform: scale(1.02) skewY(3deg);
+    transform: scale(1.02);
     cursor: pointer;
     box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
     border-radius: 10px;
@@ -68,7 +69,7 @@ export const CardInfo = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-height: 190px;
+  height: 190px;
 `
 
 export const CardTitle = styled.p`
@@ -94,7 +95,6 @@ export const CardYearAndGenres = styled.p`
 
 export const CardsCountries = styled.p`
   display: flex;
- 
   margin: 5px;
 `
 
@@ -104,7 +104,6 @@ export const AwaitCardBlock = styled.div`
   width: 230px;
   height: 320px;
   overflow: hidden;
-  
 `
 
 export const AwaitImgBlock = styled.div<{ image: string }>`
@@ -118,7 +117,7 @@ export const AwaitImgBlock = styled.div<{ image: string }>`
   display: flex;
 
   & div {
-  margin: 0;
+    margin: 0;
   }
 `
 
@@ -129,12 +128,13 @@ export const AwaitDescription = styled.div`
   padding: 10px;
   height: 20%;
   width: 90%;
+  font-weight: bold;
 `
 
 export const FavoriteBlock = styled.div`
 
-    position: absolute;
-    bottom: 12px;
-    right: 12px;
+  position: absolute;
+  bottom: 12px;
+  right: 12px;
 
-    `
+`
