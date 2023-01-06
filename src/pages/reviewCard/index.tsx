@@ -1,10 +1,10 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
-    BackgroundBlock, DescriptionBlock,
-    DescriptionShortBlock,
+    BackgroundBlock, CopyMessage, DescriptionBlock,
+    DescriptionShortBlock, FavoriteAndLinkBlock, FavoriteBlock,
     ImgBlock,
     ImgReviewCard,
-    InfoBlock,
+    InfoBlock, LinkBlock,
     RatingBlock, RatingLi,
     ReviewCardBlock,
     TextCardReview,
@@ -15,9 +15,13 @@ import {useParams} from "react-router-dom";
 import {GetReviewCard} from '../../data/getRewiewCard';
 import {colorChange} from "../../utils/colorChange";
 import {genreTranslate} from "../../utils/genreTranslate";
-import {useThemeSelector} from "../../store";
+import {useThemeSelector, useUserSelector} from "../../store";
 import SimilarCards from "./similarCards";
 import VideoTrailer from "./videoTrailer";
+import {FavoriteHook} from "../../hooks/favoriteHook";
+import {FavoriteIcon} from '../../components/svg/favoriteIcon/favoriteIcon';
+import {useClipboard} from 'use-clipboard-copy';
+import {timeoutMassage} from "../../utils/timeoutMassage";
 
 const ReviewCard = () => {
 
@@ -26,6 +30,19 @@ const ReviewCard = () => {
     const cardReview = GetReviewCard(paramsId)
     const card = cardReview.cards
     const theme = useThemeSelector(state => state.themeReducer)
+    const toggleIcon = FavoriteHook(paramsId)
+    const user = useUserSelector(state => state.authReducer.user?.username)
+
+    const [copyLink, setCopyLink] = useState(false)
+    const [copyLinkBG, setCopyLinkBG] = useState(false)
+    const [favoriteMessage, setFavoriteMessage] = useState(false)
+
+    const clipboard = useClipboard({
+        onSuccess() {
+            setCopyLink(true)
+            setCopyLinkBG(true)
+        }
+    });
 
     return (
         <ReviewCardBlock>
@@ -35,6 +52,26 @@ const ReviewCard = () => {
                         <WrapperInfo>
                             <ImgBlock>
                                 <ImgReviewCard src={`${card.posterUrl}`}/>
+                                <FavoriteAndLinkBlock>
+                                    <FavoriteBlock onClick={() => {
+                                        toggleIcon.addId()
+                                        !user &&
+                                            setFavoriteMessage(true)
+                                            timeoutMassage(setFavoriteMessage)
+
+                                    }} state={toggleIcon.stateId} theme={theme}>
+                                        <p>{toggleIcon.stateId ? 'В избранном' : 'В избранное'}</p>
+                                        <FavoriteIcon state={toggleIcon.stateId}/>
+                                        {favoriteMessage && <CopyMessage>Авторизуйтесь!</CopyMessage>}
+                                    </FavoriteBlock>
+                                    <LinkBlock theme={theme} state={copyLinkBG} onClick={() => {
+                                        clipboard.copy(`${window.location.href}`)
+                                        timeoutMassage(setCopyLink)
+                                    }}>
+                                        <p>{copyLinkBG ? 'Скопировано!' : 'Поделиться!'}</p>
+                                        {copyLink && <CopyMessage>Ссылка скопирована!</CopyMessage>}
+                                    </LinkBlock>
+                                </FavoriteAndLinkBlock>
                             </ImgBlock>
                             <InfoBlock>
                                 <TitleRu><p>{card.nameRu}</p></TitleRu>

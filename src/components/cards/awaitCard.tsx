@@ -3,7 +3,7 @@ import {useNavigate} from "react-router-dom";
 import {AwaitCardBlock, AwaitDescription, AwaitImgBlock, CardRating, FavoriteBlock, WrapperCard} from "./style";
 import {FilmsType} from "../../types";
 import {colorChange} from "../../utils/colorChange";
-import {FavoriteIcon} from "../svg/favoriteIcon";
+import {FavoriteIconComponent} from "../svg/favoriteIcon";
 import {useUserSelector} from "../../store";
 
 type CardTopFilmsType = {
@@ -21,7 +21,7 @@ const AwaitCard: FC<CardTopFilmsType> = ({props}) => {
     return (
         <WrapperCard>
             {user && <FavoriteBlock>
-                <FavoriteIcon id={props.filmId}/>
+                <FavoriteIconComponent id={props.filmId}/>
             </FavoriteBlock>}
             <AwaitCardBlock onClick={() => clickCard(props.filmId)}>
                 <AwaitImgBlock image={props.posterUrl}>

@@ -11,7 +11,7 @@ import {
 } from "./style";
 import {useNavigate} from "react-router-dom";
 import { colorChange } from '../../utils/colorChange';
-import {FavoriteIcon} from "../svg/favoriteIcon";
+import {FavoriteIconComponent} from "../svg/favoriteIcon";
 import {useUserSelector} from "../../store";
 
 type CardTopFilmsType = {
@@ -31,7 +31,7 @@ const TopFilmsCard: FC<CardTopFilmsType> = ({props}) => {
     return (
         <WrapperCard>
         {user && <FavoriteBlock>
-            <FavoriteIcon id={props.filmId}/>
+            <FavoriteIconComponent id={props.filmId}/>
         </FavoriteBlock>}
         <CardBlock id={String(props.filmId)} onClick={() => clickCard(props.filmId)}>
             <CardImg image={props.posterUrl}>

@@ -1,5 +1,5 @@
 import React, {FC} from 'react';
-import {ItemsType} from '../../types';
+import {CardReviewType, ItemsType} from '../../types';
 import {
     CardBlock,
     CardDescription, CardGenre,
@@ -12,11 +12,11 @@ import {
 import {useNavigate} from "react-router-dom";
 import {colorChange} from '../../utils/colorChange';
 import {genreTranslate} from "../../utils/genreTranslate";
-import {FavoriteIcon} from "../svg/favoriteIcon";
+import {FavoriteIconComponent} from "../svg/favoriteIcon";
 import {useUserSelector} from "../../store";
 
 type CardType = {
-    props: ItemsType
+    props: ItemsType | CardReviewType
 }
 
 const Card: FC<CardType> = ({props}) => {
@@ -32,7 +32,7 @@ const Card: FC<CardType> = ({props}) => {
     return (
         <WrapperCard>
             {user && <FavoriteBlock>
-                <FavoriteIcon id={props.kinopoiskId}/>
+                <FavoriteIconComponent id={props.kinopoiskId}/>
             </FavoriteBlock>}
             <CardBlock id={String(props.kinopoiskId)} onClick={() => clickCard(props.kinopoiskId)}>
                 <CardImg image={props.posterUrl}>
@@ -54,8 +54,6 @@ const Card: FC<CardType> = ({props}) => {
                         <CardsCountries>
                             {props.countries.map(e => ' ' + e.country).slice(0, 2).toString()}
                         </CardsCountries>
-
-
                     </CardDescription>
                 </CardInfo>
             </CardBlock>

@@ -9,7 +9,7 @@ const AwaitFilms = () => {
 
     return (
         <AwaitFilmsBlock>
-            <h1>Скоро в прокате:</h1>
+            <h1>Скоро в прокате</h1>
             <AwaitWrapperCards>
                 {awaitFilmsArray.cards?.films.length && awaitFilmsArray.cards.films.map(e => e.posterUrl.length && <AwaitCard key={e.filmId} props={e}/>)}
             </AwaitWrapperCards>
