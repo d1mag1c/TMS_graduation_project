@@ -3,6 +3,7 @@ import {useDispatch} from 'react-redux';
 import TemplateInput from '../../../components/templateInput';
 import {signUpRequest} from '../../../store/authReducer/action';
 import {FormBlock, RegButton} from '../style';
+import {useNavigate} from "react-router-dom";
 
 
 type Values = {
@@ -30,10 +31,12 @@ const FormSignUp = () => {
     }
 
     const dispatch = useDispatch();
+    const navigate = useNavigate()
     const DataForm = () => {
 
-        if (value.password === value.passwordConfirm && value.password) {
+        if (value.password === value.passwordConfirm && value.password && value.username && value.email && value.password) {
             dispatch(signUpRequest(value))
+            navigate('/activation')
         }
 
     }

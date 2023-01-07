@@ -4,16 +4,37 @@ export const RegistrationBlock = styled.section`
   display: flex;
   flex-direction: column;
   margin: 30px 50px 50px;
+  width: 100%;
   @media (max-width: 1050px) {
 
-    margin: 120px auto;
+    margin: 0 auto;
+  }
+`
+
+export const LinkBlock = styled.div`
+  margin: 50px 0 0 50px;
+  display: flex;
+
+  & a:first-of-type {
+    margin-right: 5px;
+  }
+  & a:last-of-type {
+    margin-left: 5px;
+  }
+  & a:hover {
+    text-decoration: underline;
   }
 
+  @media (max-width: 800px) {
+
+    margin: 20px 0 20px 20px;
+  }
 `
+
 export const WrapperForm = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 60px auto;
+  margin: 10px auto;
   width: 100%;
 
 `
@@ -69,6 +90,7 @@ export const ButtonsChangeFormBlock = styled.div`
   width: 50%;
   max-width: 500px;
   min-width: 350px;
+
   & button {
     width: 50%;
     height: 50px;
@@ -79,21 +101,23 @@ export const ButtonsChangeFormBlock = styled.div`
 `
 
 
-export const ButtonSignUp = styled.button<{formState: boolean}>`
+export const ButtonSignUp = styled.button<{ formState: boolean }>`
   border-bottom-left-radius: 20px;
-  background: ${({formState}) => formState ?  '#bbbbbb;' : 'rgb(79, 13, 100)'};
-  color: ${({formState}) => formState ? 'black' :  '#bbbbbb;'};
+  background: ${({formState}) => formState ? '#bbbbbb;' : 'rgb(79, 13, 100)'};
+  color: ${({formState}) => formState ? 'black' : '#bbbbbb;'};
   cursor: ${({formState}) => formState ? 'pointer' : 'default'};
-  &:hover{
-    color: ${({formState}) => formState ? "#ffe311;" :  "none"};
+
+  &:hover {
+    color: ${({formState}) => formState ? "#ffe311;" : "none"};
   }
 `
-export const ButtonSignIn = styled.button<{formState: boolean}>`
+export const ButtonSignIn = styled.button<{ formState: boolean }>`
   border-bottom-right-radius: 20px;
-  background: ${({formState}) => formState ? 'rgb(79, 13, 100)' : '#bbbbbb;' };
-  color: ${({formState}) => formState ?  '#bbbbbb;' : 'black'};
-  cursor: ${({formState}) => formState ?  'default' : 'pointer'};
-  &:hover{
-    color: ${({formState}) => formState ? "none" :  "#ffe311;"};
+  background: ${({formState}) => formState ? 'rgb(79, 13, 100)' : '#bbbbbb;'};
+  color: ${({formState}) => formState ? '#bbbbbb;' : 'black'};
+  cursor: ${({formState}) => formState ? 'default' : 'pointer'};
+
+  &:hover {
+    color: ${({formState}) => formState ? "none" : "#ffe311;"};
   }
 `

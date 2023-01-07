@@ -25,7 +25,8 @@ const Favorites = () => {
                     ? arrayCards.cards.map(card => card && <Card props={card} key={card.kinopoiskId}/>)
                     : <h1>Вы ничего не добавили в избранное!</h1>}
             </FavoritesWrapperCard>
-            <PaginationBlock forcePage={0} pageCount={Math.ceil(favoritesIdArray.length / 5)} changePage={changePage}/>
+            {page > 0 && <PaginationBlock forcePage={0} pageCount={Math.ceil(favoritesIdArray.length / 5)}
+                              changePage={changePage}/>}
 
         </FavoritesBlock>
     );

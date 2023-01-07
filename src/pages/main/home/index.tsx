@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import Card from '../../../components/cards';
 import Loader from '../../../components/loader';
-import { ButtonLoaderBlock } from '../../../components/loader/buttonLoader/style';
-import { ALL } from '../../../constants';
-import { GetHomeCards } from '../../../data/getHomeCards';
+import {ButtonLoaderBlock} from '../../../components/loader/buttonLoader/style';
+import {ALL} from '../../../constants';
+import {GetHomeCards} from '../../../data/getHomeCards';
 import {ButtonGetMore, Wrapper, WrapperCards} from "./style";
 import AwaitFilms from "./awaitFilms";
-import {useFavoriteSelector, useUserSelector} from "../../../store";
 
 const Home = () => {
 
@@ -28,16 +27,19 @@ const Home = () => {
 
     return (
         <>
-            <AwaitFilms/>
-            {cardsArray.cards.length ? <Wrapper>
-                <WrapperCards>
-                    {cardsArray.cards.map((e) => e.items.map(card => <Card props={card} key={card.kinopoiskId}/>))}
-                </WrapperCards>
-                {cardsArray.page < 5 &&
-                    <ButtonGetMore onClick={getCards}>Показать еще
-                        {buttonLoad && <ButtonLoaderBlock/>}
-                    </ButtonGetMore>}
-            </Wrapper> : <Loader/>}
+            {cardsArray.cards.length ?
+                <Wrapper>
+                    <AwaitFilms/>
+                    <WrapperCards>
+                        {cardsArray.cards.map((e) => e.items.map(card => <Card props={card}
+                                                                               key={card.kinopoiskId}/>))}
+                    </WrapperCards>
+                    {cardsArray.page < 5 &&
+                        <ButtonGetMore onClick={getCards}>Показать еще
+                            {buttonLoad && <ButtonLoaderBlock/>}
+                        </ButtonGetMore>}
+                </Wrapper>
+                : <Loader/>}
         </>
     );
 };
