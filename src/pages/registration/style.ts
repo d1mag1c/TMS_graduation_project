@@ -34,7 +34,7 @@ export const LinkBlock = styled.div`
 export const WrapperForm = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 10px auto 50px;
   width: 100%;
 
 `
@@ -57,7 +57,6 @@ export const FormBlock = styled.form`
   width: 50%;
   max-width: 500px;
   min-width: 350px;
-  height: 500px;
   padding: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -68,13 +67,14 @@ export const RegButton = styled.button`
   justify-content: center;
   align-items: center;
   height: 50px;
+  min-height: 50px;
   width: 60%;
   min-width: 240px;
   border-radius: 10px;
   background: rgb(79, 13, 100);
   border: 2px solid #bbbbbb;
   color: #bbbbbb;
-  margin: auto 10px 20px;
+  margin: 20px 10px 20px;
   font-weight: bold;
   font-size: 20px;
 

@@ -1,21 +1,12 @@
-import React, {useState} from 'react';
-import {ErrorMessage} from "./style";
+import React from 'react';
+import {ErrorMessageBlock} from "./style";
 import {Input, InputFormBlock} from "./style";
-
-type InputFormProps = {
-    type: string,
-    name:string,
-    placeholder: string,
-    value: string,
-    error?: boolean,
-    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void,
-}
+import {InputFormProps} from './types';
 
 const TemplateInput = (props: InputFormProps) => {
 
-    const [error, setError] = useState(false)
     const validateValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-        e.target.value.length < 6 ? setError(true) : setError(false)
+        props.errorChange(props.validate(e.target.value))
     }
 
     return (
@@ -26,10 +17,12 @@ const TemplateInput = (props: InputFormProps) => {
                 value={props.value}
                 name={props.name}
                 onChange={props.onChange}
-                onBlur={validateValue}
-                error={error && props.error}>
+                onBlur={validateValue}>
             </Input>
-            {error && <ErrorMessage>{`Некорректные данные`}</ErrorMessage>}
+            <ErrorMessageBlock>
+                {props.error !== 'true' && <span>{props.error}</span>}
+            </ErrorMessageBlock>
+
         </InputFormBlock>
     );
 };

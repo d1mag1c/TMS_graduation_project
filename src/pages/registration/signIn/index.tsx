@@ -4,6 +4,7 @@ import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import TemplateInput from '../../../components/templateInput';
 import { signInRequest } from '../../../store/sagaRegUser/type';
+import {validateEmail, validatePassword} from "../../../utils/validate";
 
 type Values = {
     email : string,
@@ -29,10 +30,13 @@ const FormSignIn = () => {
     }
 
     const  dispatch = useDispatch();
+    const [errorEmail, setErrorEmail] = useState('')
+    const [errorPassword, setErrorPassword] = useState('')
+
     const DataForm = () => {
-        console.log(value)
-        const isValid = true;
-        if(isValid) {
+
+        if(errorEmail === 'true' && errorPassword === 'true') {
+            console.log(value)
             dispatch(signInRequest(value))
             navigate('/')
         }
@@ -45,18 +49,19 @@ const FormSignIn = () => {
                 name={'email'}
                 placeholder={'Ваш e-mail'}
                 value={value.email}
-                onChange={handleChange}
-                error
-            />
+                error={errorEmail}
+                errorChange={setErrorEmail}
+                validate={validateEmail}
+                onChange={handleChange}/>
             <TemplateInput
                 type={'password'}
                 name={'password'}
                 placeholder={'Введите пароль'}
                 value={value.password}
-                onChange={handleChange}
-                error
-            />
-            {/*<Link to={'/recover-password'}>Forgot password?</Link>*/}
+                error={errorPassword}
+                errorChange={setErrorPassword}
+                validate={validatePassword}
+                onChange={handleChange}/>
             <RegButton onClick={DataForm}>Войти</RegButton>
             </FormBlock>
     );

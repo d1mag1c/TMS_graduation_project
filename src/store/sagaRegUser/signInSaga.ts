@@ -8,9 +8,7 @@ type UserFavoriteType = {
     favorites?: number[];
 };
 
-const signInRequest = async (
-    payload: SignInPayload
-): Promise<SignInSuccessPayload> => {
+const signInRequest = async (payload: SignInPayload): Promise<SignInSuccessPayload> => {
     const headers = {
         'Content-Type': 'application/json;charset=utf-8',
     }

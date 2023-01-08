@@ -8,6 +8,7 @@ export const FavoriteHook = (id: number) => {
     const user = useUserSelector(state => state.authReducer.user?.username)
     const findUser = JSON.parse(localStorage.getItem(`${user}`)!);
     const favoritesIdArray = useFavoriteSelector(state => state.favoriteReducer.idFavorite)
+
     const [stateId, setStateId] = useState(findUser?.favorites.find((e: number) => e === id)!)
     const dispatch = useDispatch();
 
@@ -27,6 +28,7 @@ export const FavoriteHook = (id: number) => {
 
     useEffect(() => {
         if(user && findUser?.favorites.length && !favoritesIdArray.length) {
+
             localStorage.setItem(`${user}`, JSON.stringify({favorites: [...findUser?.favorites]}))
             dispatch(addToFavorites([...findUser?.favorites]))
 

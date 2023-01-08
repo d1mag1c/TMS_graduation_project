@@ -5,12 +5,15 @@ import {LoginMenuBlock, LoginMenuLi, LoginMenuUl} from './style';
 import {useNavigate} from "react-router-dom";
 import SettingIcon from "../../../components/svg/settingIcon";
 import { FavoriteIcon } from '../../../components/svg/favoriteIcon/favoriteIcon';
+import {useDispatch} from "react-redux";
+import {addToFavorites} from "../../../store/favoriteReducer/action";
 
 
 const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
     const theme = useThemeSelector(state => state.themeReducer)
     const user = useUserSelector(state => state.authReducer.user?.username)
     const navigation = useNavigate()
+    const dispatch = useDispatch();
 
     return (
         <>
@@ -32,7 +35,10 @@ const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
                     </LoginMenuLi>
                     <LoginMenuLi onClick={() => {
                         setLoginState(false)
-                    }}>Выйти</LoginMenuLi>
+                        dispatch({type:"REGISTER_SUCCESS", payload: null})
+                        dispatch(addToFavorites([]))}}>
+                        Выйти
+                    </LoginMenuLi>
                 </LoginMenuUl>
             </LoginMenuBlock>}
         </>

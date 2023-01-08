@@ -7,6 +7,7 @@ import SearchPage from "../../pages/searchPage";
 import Registration from "../../pages/registration";
 import Favorites from '../../pages/favorites';
 import Activation from "../../pages/activation";
+import NotFound from '../../pages/notFound';
 
 const RouteComponent = () => {
     return (
@@ -16,9 +17,9 @@ const RouteComponent = () => {
             <Route path='review/:id' element={<ReviewCard/>}/>
             <Route path='films' element={<SearchPage/>}/>
             <Route path='registration' element={<Registration/>}/>
-            <Route path='/favorites' element={<Favorites/>}/>
-            <Route path='/activation' element={<Activation/>}/>
-            {/*<Route path="*" element={<NotFound />} />*/}
+            <Route path='favorites' element={<Favorites/>}/>
+            <Route path='activation' element={<Activation/>}/>
+            <Route path="*" element={<NotFound />} />
         </Routes>
     );
 };
