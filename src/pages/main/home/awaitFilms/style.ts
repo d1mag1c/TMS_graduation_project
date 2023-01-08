@@ -12,10 +12,7 @@ export const AwaitFilmsBlock = styled.section`
     justify-content: center;
     margin: 0 auto;
   }
-  @media (max-width: 1050px) {
 
-    margin: 100px auto 0;
-  }
 `
 
 export const AwaitWrapperCards = styled.div`

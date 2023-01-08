@@ -24,6 +24,6 @@ export const ButtonGetMore = styled.button`
   position: relative;
 `
 export const Wrapper = styled.div`
-    
+
     `
 

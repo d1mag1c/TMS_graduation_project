@@ -5,8 +5,8 @@ import TopFilms from '../../pages/main/topFilms';
 import ReviewCard from "../../pages/reviewCard";
 import SearchPage from "../../pages/searchPage";
 import Registration from "../../pages/registration";
-import { ActivationRoute } from './activation';
 import Favorites from '../../pages/favorites';
+import Activation from "../../pages/activation";
 
 const RouteComponent = () => {
     return (
@@ -16,8 +16,8 @@ const RouteComponent = () => {
             <Route path='review/:id' element={<ReviewCard/>}/>
             <Route path='films' element={<SearchPage/>}/>
             <Route path='registration' element={<Registration/>}/>
-            <Route path='/activate/:uid/:token' element={<ActivationRoute/>}/>
             <Route path='/favorites' element={<Favorites/>}/>
+            <Route path='/activation' element={<Activation/>}/>
             {/*<Route path="*" element={<NotFound />} />*/}
         </Routes>
     );

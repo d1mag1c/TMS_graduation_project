@@ -13,8 +13,5 @@ export const FavoritesBlock = styled.section`
   display: flex;
   flex-direction: column;
   margin: 30px 50px 50px;
-  @media (max-width: 1050px) {
-
-    margin: 120px auto;
-  }
+width: 100%;
     `

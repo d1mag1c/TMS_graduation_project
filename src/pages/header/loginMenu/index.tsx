@@ -26,6 +26,7 @@ const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
                     </LoginMenuLi>
                     <LoginMenuLi onClick={() => {
                         setLoginState(false)
+                        navigation('/activation')
                     }}>
                        <SettingIcon/> <p>Настройки</p>
                     </LoginMenuLi>
