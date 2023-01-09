@@ -1,5 +1,5 @@
-import React, {FC} from 'react';
-import {useThemeSelector, useUserSelector} from "../../../store";
+import React, {FC, useEffect} from 'react';
+import {useFavoriteSelector, useThemeSelector, useUserSelector} from "../../../store";
 import {OnclickType} from "../login";
 import {LoginMenuBlock, LoginMenuLi, LoginMenuUl} from './style';
 import {useNavigate} from "react-router-dom";
@@ -14,6 +14,18 @@ const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
     const user = useUserSelector(state => state.authReducer.user?.username)
     const navigation = useNavigate()
     const dispatch = useDispatch();
+
+    const findUser = JSON.parse(localStorage.getItem(`${user}`)!);
+    const favoritesIdArray = useFavoriteSelector(state => state.favoriteReducer.idFavorite)
+
+    useEffect(() => {
+        if(user && findUser?.favorites.length && !favoritesIdArray.length) {
+
+            localStorage.setItem(`${user}`, JSON.stringify({favorites: [...findUser?.favorites]}))
+            dispatch(addToFavorites([...findUser?.favorites]))
+
+        }
+    },[user])
 
     return (
         <>

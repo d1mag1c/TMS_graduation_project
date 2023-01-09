@@ -10,13 +10,13 @@ export const InputFormBlock = styled.div`
   position: relative;
 `
 
-export const Input = styled.input<{ error?: boolean }>`
+export const Input = styled.input<{ error?: string }>`
   width: 100%;
   height: 50px;
   display: flex;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid ${props => props.error ? 'red' : 'grey'};
+  // border: 2px solid ${({error}) => error ? 'red' : 'grey'};
   color: black;
 `
 export const ErrorMessageBlock = styled.div`
@@ -25,7 +25,9 @@ export const ErrorMessageBlock = styled.div`
   font-size: 10px;
   margin-top: 5px;
   width: 100%;
-height: 25px;
+  height: 25px;
+  padding: 0 5px;
+
   & span {
     color: red;
   }

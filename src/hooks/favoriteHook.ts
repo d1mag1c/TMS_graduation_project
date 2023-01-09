@@ -27,16 +27,10 @@ export const FavoriteHook = (id: number) => {
     }
 
     useEffect(() => {
-        if(user && findUser?.favorites.length && !favoritesIdArray.length) {
-
-            localStorage.setItem(`${user}`, JSON.stringify({favorites: [...findUser?.favorites]}))
-            dispatch(addToFavorites([...findUser?.favorites]))
-
-        } else if (user) {
+        if (user && favoritesIdArray.length) {
             localStorage.setItem(`${user}`, JSON.stringify({favorites: favoritesIdArray}))
         }
-    },[stateId])
-
+    }, [stateId])
 
 
     return {stateId, addId};

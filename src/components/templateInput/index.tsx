@@ -17,7 +17,8 @@ const TemplateInput = (props: InputFormProps) => {
                 value={props.value}
                 name={props.name}
                 onChange={props.onChange}
-                onBlur={validateValue}>
+                onBlur={validateValue}
+                error={props.error}>
             </Input>
             <ErrorMessageBlock>
                 {props.error !== 'true' && <span>{props.error}</span>}
