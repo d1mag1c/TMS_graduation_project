@@ -11,6 +11,7 @@ const Favorites = () => {
     const favoritesIdArray = useFavoriteSelector(state => state.favoriteReducer.idFavorite)
     const [page, setPage] = useState(0)
     const [cardsId, setCardsId] = useState<number[]>(favoritesIdArray?.slice(page, page + 5) || [])
+    const pageCount = Math.ceil(favoritesIdArray.length / 5)
 
     const changePage = (e: { selected: number }) => {
         setPage(e.selected * 5)
@@ -25,9 +26,10 @@ const Favorites = () => {
                     ? arrayCards.cards.map(card => card && <Card props={card} key={card.kinopoiskId}/>)
                     : <h1>Вы ничего не добавили в избранное!</h1>}
             </FavoritesWrapperCard>
-            {page > 0 && <PaginationBlock forcePage={0} pageCount={Math.ceil(favoritesIdArray.length / 5)}
-                              changePage={changePage}/>}
-
+            {pageCount > 1 &&
+                <PaginationBlock
+                forcePage={0} pageCount={pageCount}
+                changePage={changePage}/>}
         </FavoritesBlock>
     );
 };

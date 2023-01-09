@@ -18,9 +18,11 @@ export const LinkBlock = styled.div`
   & a:first-of-type {
     margin-right: 5px;
   }
+
   & a:last-of-type {
     margin-left: 5px;
   }
+
   & a:hover {
     text-decoration: underline;
   }
@@ -34,7 +36,7 @@ export const LinkBlock = styled.div`
 export const WrapperForm = styled.div`
   display: flex;
   flex-direction: column;
-  margin: 10px auto;
+  margin: 10px auto 50px;
   width: 100%;
 
 `
@@ -57,30 +59,32 @@ export const FormBlock = styled.form`
   width: 50%;
   max-width: 500px;
   min-width: 350px;
-  height: 500px;
   padding: 20px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
+  position: relative;
 `
 
-export const RegButton = styled.button`
+export const RegButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   height: 50px;
+  min-height: 50px;
   width: 60%;
   min-width: 240px;
   border-radius: 10px;
   background: rgb(79, 13, 100);
   border: 2px solid #bbbbbb;
   color: #bbbbbb;
-  margin: auto 10px 20px;
+  margin: 30px 10px 20px;
   font-weight: bold;
   font-size: 20px;
 
   &:hover {
     background: #bbbbbb;
     color: black;
+    cursor: pointer;
   }
 `
 
@@ -97,9 +101,7 @@ export const ButtonsChangeFormBlock = styled.div`
     font-weight: bold;
     font-size: 16px;
   }
-
 `
-
 
 export const ButtonSignUp = styled.button<{ formState: boolean }>`
   border-bottom-left-radius: 20px;
@@ -120,4 +122,12 @@ export const ButtonSignIn = styled.button<{ formState: boolean }>`
   &:hover {
     color: ${({formState}) => formState ? "none" : "#ffe311;"};
   }
+`
+
+export const MassageError = styled.span`
+  color: red;
+  position: absolute;
+  bottom: 100px;
+  left: 50%;
+  transform: translateX(-50%);
 `

@@ -10,16 +10,14 @@ export const WrapperCard = styled.div`
     transition: 1s;
     transform: scale(1.02);
     cursor: pointer;
-    box-shadow: -20px 30px 10px 0 rgba(65, 64, 64, 0.68);
+    box-shadow: -20px 20px 10px 0 rgba(65, 64, 64, 0.68);
     border-radius: 10px;
-
   }
 `
 
 export const CardBlock = styled.div`
   width: 250px;
   height: 490px;
-
   overflow: hidden;
 
 `

@@ -5,30 +5,31 @@ export const InputFormBlock = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 20px auto;
+  flex-direction: column;
+  margin: 20px auto 0;
   position: relative;
 `
 
-export const Input = styled.input<{ error?: boolean }>`
+export const Input = styled.input<{ error?: string }>`
   width: 100%;
   height: 50px;
   display: flex;
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid ${props => props.error ? 'red' : 'grey'};
+  // border: 2px solid ${({error}) => error ? 'red' : 'grey'};
   color: black;
 `
+export const ErrorMessageBlock = styled.div`
 
-export const Label = styled.label`
-  font-weight: 600;
-  font-size: 16px;
-  line-height: 25px;
-`
+  display: flex;
+  font-size: 10px;
+  margin-top: 5px;
+  width: 100%;
+  height: 25px;
+  padding: 0 5px;
 
-export const ErrorMessage = styled.span`
-  color: red;
-  position: absolute;
-  bottom: -20px;
-  left: 10px;
-  z-index: 5;
+  & span {
+    color: red;
+  }
+
 `

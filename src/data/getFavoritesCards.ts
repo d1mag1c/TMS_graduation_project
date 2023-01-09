@@ -13,6 +13,7 @@ export const GetFavoritesCards = (arrayId: number[]) => {
             const arrayFetchId = arrayId.map(id => fetch(`https://kinopoiskapiunofficial.tech/api/v2.2/films/${id}`, {
                 method: 'GET',
                 headers: {
+                    'Access-Control-Allow-Origin':'*',
                     'X-API-KEY': API_KEY,
                     'Content-Type': 'application/json',
                 },
