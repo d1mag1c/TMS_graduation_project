@@ -18,16 +18,18 @@ const SearchPage = () => {
     }
 
     return (
-        <SearchPageBlock>
-            {searchCards.cards?.items.length ? <Wrapper>
-                <WrapperCards>
-                    {searchCards.cards?.items.length  &&
-                        searchCards.cards.items.map((e) =>  <Card props={e} key={e.kinopoiskId}/>)}
-                </WrapperCards>
-                <PaginationBlock pageCount={searchCards.cards.totalPages} forcePage={force} changePage={changePage}/>
-            </Wrapper> : <Loader/>}
-        </SearchPageBlock>
-
+        <>
+            {searchCards.cards?.items.length ? <SearchPageBlock>
+                <Wrapper>
+                    <WrapperCards>
+                        {searchCards.cards?.items.length &&
+                            searchCards.cards.items.map((e) => <Card props={e} key={e.kinopoiskId}/>)}
+                    </WrapperCards>
+                    <PaginationBlock pageCount={searchCards.cards.totalPages} forcePage={force}
+                                     changePage={changePage}/>
+                </Wrapper>
+            </SearchPageBlock> : <Loader/>}
+        </>
     );
 };
 

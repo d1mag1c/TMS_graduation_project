@@ -39,7 +39,7 @@ export const MenuBlock = styled.section<{ burgerState: boolean }>`
     }
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 720px) {
     width: 50px;
     min-width: 50px;
     ${({burgerState}) => !burgerState && '&:after{\n content: \'\\2630\';\n font-size: 30px;\n }'

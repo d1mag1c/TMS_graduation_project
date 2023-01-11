@@ -26,7 +26,7 @@ const AdvancedSearch: FC<AdvancedSearchType> = ({
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault()
         const params = e.currentTarget
-        const {value, ratingFrom, ratingTo, yearFrom, yearTo, type, genres, countries} = params
+        const {value, ratingFrom, ratingTo, yearFrom, yearTo, type, genres, countries, order} = params
 
         if (value.value || ratingFrom.value || ratingTo.value || yearFrom.value || yearFrom.value || type.value || genres.value || countries.value) {
             navigate({
@@ -39,7 +39,8 @@ const AdvancedSearch: FC<AdvancedSearchType> = ({
                     yearTo: yearTo.value,
                     type: type.value,
                     genres: genres.value,
-                    countries: countries.value
+                    countries: countries.value,
+                    order: order.value
                 })}`
 
             });
@@ -63,18 +64,18 @@ const AdvancedSearch: FC<AdvancedSearchType> = ({
                 <InputBlock>
                     <label>Рейтинг:</label>
                     <div>
-                        <input type="text" name="ratingFrom" placeholder="от 0"
+                        <input type="number" name="ratingFrom" placeholder="от 0" maxLength={2} min='0' max='10'
                                defaultValue={params.get('ratingFrom') || ''}/>
-                        <input type="text" name="ratingTo" placeholder="до 10"
+                        <input type="number" name="ratingTo" placeholder="до 10" maxLength={2} min='2' max='10'
                                defaultValue={params.get('ratingTo') || ''}/>
                     </div>
                 </InputBlock>
                 <InputBlock>
                     <label>Год выхода:</label>
                     <div>
-                        <input type="text" name="yearFrom" placeholder="от 1000"
+                        <input type="number" name="yearFrom" placeholder="от 1000" maxLength={4} min='1000' max='2023'
                                defaultValue={params.get('yearFrom') || ''}/>
-                        <input type="text" name="yearTo" placeholder="до 3000"
+                        <input type="number" name="yearTo" placeholder="до 3000" maxLength={4} min='1800' max='3000'
                                defaultValue={params.get('yearTo') || ''}/>
                     </div>
                 </InputBlock>
@@ -105,6 +106,15 @@ const AdvancedSearch: FC<AdvancedSearchType> = ({
                         {GenresAndCountries.arrayList?.countries &&
                             GenresAndCountries.arrayList.countries.map(e =>
                                 <option value={e.id} key={e.country + e.id}>{e.country}</option>)}
+                    </select>
+                </InputBlock>
+                <InputBlock>
+                    <label>Сортировать по:</label>
+                    <select name="order" defaultValue={params.get('order') || ''}>
+                        <option value="">Без сортировки</option>
+                        <option value="RATING">Рейтингу</option>
+                        <option value="NUM_VOTE">Количеству голосов</option>
+                        <option value="YEAR">Году</option>
                     </select>
                 </InputBlock>
                 <InputButton type="submit" value='Применить фильтр'/>

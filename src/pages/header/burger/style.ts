@@ -8,12 +8,15 @@ export const BurgerBlock = styled.section<{ theme?: boolean, burgerState?: boole
   top: 80px;
   left: 0;
   transition: 0.8s;
-  transform: translateX(${({burgerState}) => burgerState ? '0px' : '-300px'});
+  transform: translateX(${({burgerState}) => burgerState ? '0px' : '-100%'});
   border-right: 2px solid rgb(79, 13, 100);
   z-index: 15;
 
   @media (max-width: 1050px) {
     top: 170px;
+  }
+  @media (max-width: 420px) {
+    width: 100%;
   }
 `
 

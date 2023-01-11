@@ -8,7 +8,11 @@ export const WrapperCards = styled.section`
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
+  @media (max-width: 420px) {
 
+    margin: 20px auto 10px;
+    padding: 0 10px;
+  }
 `
 
 export const ButtonGetMore = styled.button`

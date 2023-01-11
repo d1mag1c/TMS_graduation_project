@@ -30,7 +30,6 @@ export const FooterLinks = styled.ul`
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  min-width: 400px;
   padding: 20px;
 
   & li {

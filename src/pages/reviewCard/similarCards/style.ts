@@ -5,7 +5,9 @@ export const SimilarBlock = styled.section`
   flex-direction: column;
   margin: 50px;
   padding: 0 50px;
-
+  @media (max-width: 680px) {
+    margin: 0;
+  }
 `
 
 export const SimilarInfo = styled.div`
