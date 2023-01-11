@@ -19,6 +19,9 @@ export const AdvancedSearchBlock = styled.section<{ state: boolean }>`
   @media (max-width: 1050px) {
     top: 170px;
   }
+  @media (max-width: 420px) {
+   width: 100%;
+  }
 `
 
 export const AdvButtonClose = styled.button`
@@ -59,6 +62,10 @@ export const InputButton = styled.input`
     color: white;
     border-color: white;
   }
+  @media (max-width: 1050px) {
+    height: 40px;
+    margin: 15px 0 0;
+  }
 `
 
 export const InputBlock = styled.div`
@@ -67,7 +74,8 @@ export const InputBlock = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  margin: 10px;
+
+  margin: 5px;
 
   & label {
     font-size: 20px;
@@ -81,6 +89,7 @@ export const InputBlock = styled.div`
 
   & input, & select {
     width: 40%;
+    min-width: 120px;
     height: 40px;
     margin: 10px;
     padding: 10px;
@@ -95,6 +104,7 @@ export const InputBlock = styled.div`
   }
   & select {
     color: black;
+    width: 50%;
   }
   &:first-of-type{
 
@@ -104,5 +114,9 @@ export const InputBlock = styled.div`
   }
   @media (max-width: 1050px) {
     margin: 5px;
+    & input, & select {
+      height: 35px;
+      padding: 5px;
+    }
   }
 `

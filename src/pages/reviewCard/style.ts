@@ -10,8 +10,8 @@ export const ReviewCardBlock = styled.section`
 
 `
 
-export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }>`
-  background: ${({gradient}) => gradient}, url(${({coverUrl}) => coverUrl}) no-repeat;
+export const BackgroundBlock = styled.div<{ coverUrl: string }>`
+  background: ${({theme}) => theme.gradient}, url(${({coverUrl}) => coverUrl}) no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
@@ -19,7 +19,10 @@ export const BackgroundBlock = styled.div<{ coverUrl: string, gradient: string }
   padding: 100px 100px 50px 100px;
   flex-direction: column;
   @media (max-width: 1050px) {
-    padding: 160px 50px 50px 50px;
+    padding: 60px 50px 50px 50px;
+  }
+  @media (max-width: 680px) {
+    background: ${({theme}) => theme.background}
   }
 `
 
@@ -39,6 +42,10 @@ export const ImgBlock = styled.div`
 
   @media (max-width: 950px) {
     margin: 0 auto;
+  }
+  @media (max-width: 500px) {
+    min-width: 270px;
+    width: 270px;
   }
 `
 
@@ -97,10 +104,12 @@ export const LinkBlock = styled.div<{ state: boolean }>`
   font-size: 14px;
   position: relative;
   background: ${({state}) => state ? 'rgb(79, 13, 100)' : 'none'};
-  &  p {
+
+  & p {
 
     color: ${({state, theme}) => state ? 'white' : `${theme.color}`};
   }
+
   &:hover p {
     color: ${({theme}) => theme.colorHover};
   }
@@ -148,8 +157,13 @@ export const RatingBlock = styled.ul`
   display: flex;
   width: max-content;
   margin: 20px 0 60px;
-  @media (max-width: 950px) {
 
+  @media (max-width: 500px) {
+    flex-wrap: wrap;
+    width: 100%;
+    & li {
+      margin: 10px 10px 40px;
+    }
   }
 
 `

@@ -5,7 +5,6 @@ import {API_KEY} from "../constants";
 export const GetGenresAndCountries = () => {
 
     const [arrayList, setArrayList] = useState<GenresCountriesType>()
-
     const URLGendersAndCountries = `https://kinopoiskapiunofficial.tech/api/v2.2/films/filters`;
 
     useEffect(() => {

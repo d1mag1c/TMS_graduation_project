@@ -1,13 +1,14 @@
 import {useEffect, useState} from "react";
 import {CardsHomeType} from "../types";
 import {API_KEY} from "../constants";
-import {useLocation} from "react-router-dom";
+import {useLocation, useNavigate} from "react-router-dom";
 
 export const GetSearchCards = () => {
 
     const params = useLocation().search;
     const [cards, setCards] = useState<CardsHomeType>()
     const [page, setPage] = useState(1)
+    const navigate = useNavigate()
 
     const URLSearchCards = `https://kinopoiskapiunofficial.tech/api/v2.2/films${params}&page=${page}`;
 
@@ -23,11 +24,13 @@ export const GetSearchCards = () => {
             .then(res => res.json())
             .then(json => setCards(json)
             )
-            .catch(err => console.log(err))
+            .catch(err => {
+                console.log(err)
+                navigate('/error404')
+            })
 
 
     }, [URLSearchCards, params, page])
-    // console.log( URLSearchCards)
 
     return {cards, page, setPage}
 }

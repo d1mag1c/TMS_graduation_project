@@ -35,11 +35,14 @@ export const LogoBlock = styled.div`
   @media (max-width: 1350px) {
     margin: 0 50px 0 40px;
   }
-  @media (max-width: 600px) {
+  @media (max-width: 620px) {
     width: 55px;
     height: 40px;
     min-width: 85px;
     font-size: 30px;
     margin-left: 10px;
+  }
+  @media (max-width:510px) {
+    display: none;
   }
 `

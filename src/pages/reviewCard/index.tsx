@@ -48,7 +48,7 @@ const ReviewCard = () => {
         <ReviewCardBlock>
             {card &&
                 <>
-                    <BackgroundBlock coverUrl={card.coverUrl} gradient={theme.gradient}>
+                    <BackgroundBlock coverUrl={card.coverUrl} theme={theme}>
                         <WrapperInfo>
                             <ImgBlock>
                                 <ImgReviewCard src={`${card.posterUrl}`}/>

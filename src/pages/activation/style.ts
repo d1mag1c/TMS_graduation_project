@@ -44,16 +44,20 @@ export const ActivationBlock = styled.section`
       background: #390050;
     }
   }
+
+  @media (max-width: 720px) {
+padding: 30px;
+   & h1, & input{
+     width: 100%;
+   }
+  }
 `
 export const LinkBlock = styled.div`
 
   display: flex;
   width: 100%;
-
-  & a {
-    margin: 0 0 50px 100px;
-  }
-
+  margin: 20px 0 0 100px;
+  
   & a:hover {
     text-decoration: underline;
   }
@@ -62,6 +66,7 @@ export const LinkBlock = styled.div`
 
     margin: 0 0 20px 20px;
   }
+
   & a {
     margin: 0 0 50px 0;
   }
