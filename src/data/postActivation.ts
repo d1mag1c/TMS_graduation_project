@@ -10,14 +10,14 @@ export const PostActivation = (uid: string, token: string) => {
 
     useEffect(() => {
         if(uid && token){
-            console.log(uid,token)
+
             fetch('https://studapi.teachmeskills.by/auth/users/activation/', {
                 method: 'POST',
                 body: JSON.stringify({uid, token}),
                 headers
             }).then(response => {
                 console.log('response', response)
-                response.json()
+                // response.json()
                 setStateActivation(true)
             })
                 .then(data => {

@@ -17,4 +17,9 @@ export const FavoritesBlock = styled.section`
   flex-direction: column;
   margin: 30px 50px 50px;
   width: 100%;
+  & h1 {
+    display: flex;
+    margin: auto auto;
+    font-size: 30px;
+  }
 `

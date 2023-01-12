@@ -23,8 +23,8 @@ const LoginMenu: FC<OnclickType> = ({loginState, setLoginState}) => {
 
             localStorage.setItem(`${user}`, JSON.stringify({favorites: [...findUser?.favorites]}))
             dispatch(addToFavorites([...findUser?.favorites]))
-
         }
+
     },[user])
 
     return (

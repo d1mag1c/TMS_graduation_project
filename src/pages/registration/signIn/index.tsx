@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {FormBlock, RegButton} from "../style";
 import {useNavigate} from "react-router-dom";
 import {useDispatch} from "react-redux";
 import TemplateInput from '../../../components/templateInput';
 import { signInRequest } from '../../../store/sagaRegUser/type';
 import {validateEmail, validatePassword} from "../../../utils/validate";
+import {useUserSelector} from "../../../store";
 
 type Values = {
     email : string,
@@ -32,15 +33,21 @@ const FormSignIn = () => {
     const  dispatch = useDispatch();
     const [errorEmail, setErrorEmail] = useState('')
     const [errorPassword, setErrorPassword] = useState('')
+    const user = useUserSelector(state => state.authReducer.user?.username)
 
     const DataForm = () => {
 
         if(errorEmail === 'true' && errorPassword === 'true') {
             console.log(value)
             dispatch(signInRequest(value))
-            navigate('/')
         }
     }
+
+    useEffect(() => {
+        if(user) {
+            navigate('/')
+        }
+    },[user])
 
     return (
         <FormBlock>
