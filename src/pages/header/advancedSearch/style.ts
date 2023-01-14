@@ -15,7 +15,7 @@ export const AdvancedSearchBlock = styled.section<{ state: boolean }>`
   background: ${({theme}) => theme.background};
   border-left: 2px solid rgb(79, 13, 100);
   color: ${({theme}) => theme.color};
-  
+  overflow-y: auto;
   @media (max-width: 1050px) {
     top: 170px;
   }
@@ -45,6 +45,9 @@ export const FormBlock = styled.form`
   align-items: center;
   width: 100%;
 
+  overflow-y: auto;
+  height: 100%;
+  min-height: 850px;
 `
 
 export const InputButton = styled.input`
